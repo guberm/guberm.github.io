@@ -1,37 +1,167 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/guberm/guberm.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Michael Guber | GitHub Profile</title>
+  <meta name="description" content="Michael Guber (guberm) profile on github.com">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="noodp">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="Of2PV-HN-luNF6Q2xaqWAV469eoQ--P4NZRQoyIGqDA"/>
+  <style>
+    html {
+      font-size: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      vertical-align: baseline;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    body {
+      color: #222;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-size: 16px;
+      font-weight: 400;
+      height: 100%;
+      line-height: normal;
+      margin: 0;
+      text-align: center;
+    }
 
-### Markdown
+    .wrapper {
+      background-color: #f8f8f8;
+      padding: 3% 0;
+      height: 100%;
+    }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    *, *:after, *:before {
+      box-sizing: border-box;
+    }
 
-```markdown
-Syntax highlighted code block
+    a, a:visited {
+      color: #000;
+      outline: none;
+      text-decoration: none;
+    }
 
-# Header 1
-## Header 2
-### Header 3
+    a:hover, a:active {
+      outline: none;
+      text-decoration: none;
+    }
 
-- Bulleted
-- List
+    a:focus {
+      outline: thin dotted;
+    }
 
-1. Numbered
-2. List
+    h1, h2, h3 {
+      font-weight: 400;
+    }
 
-**Bold** and _Italic_ and `Code` text
+    .main p {
+      font-size: 1.2em;
+    }
 
-[Link](url) and ![Image](src)
-```
+    .top h1 {
+      font-size: 3em;
+    }
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+    .top h2 {
+      margin: 0;
+    }
 
-### Jekyll Themes
+    .foot {
+      padding: 1em 0;
+    }
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/guberm/guberm.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    .links {
+      list-style: none;
+      padding: 0;
+    }
 
-### Support or Contact
+    .links li {
+      display: inline-block;
+      margin-right: 5px;
+    }
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    .links li a {
+      color: #525050;
+      border-bottom: 1px dotted #adadad;
+    }
+
+    .links a:hover {
+      color: #000;
+      border-bottom-style: solid;
+    }
+
+    @media only screen and (max-width: 360px) {
+      .links li {
+        display: block;
+        margin: 10px 0 0 0;
+      }
+    }
+
+    @media only screen and (max-width: 640px) {
+      .top h1 {
+        font-size: 2em;
+        padding: 0;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html {
+        filter: invert(1) hue-rotate(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <header class="top" role="banner">
+    <h2>Hi.</h2>
+    <h1>I'm Michael Guber</h1>
+  </header>
+  <main class="main" role="main">
+    <p>
+      A developer from Canada. <br>
+      Find me on internet by typing <code><a target="_blank" rel="noopener"
+             href="https://www.google.com/search?q=@guberm">@guberm</a></code>
+    </p>
+  </main>
+  <footer class="foot" role="contentinfo">
+
+    <span class="hint">I am social, not really.</span>
+
+    <ul class="links" role="menu">
+      <li><a target="_blank" rel="noopener" title="GitHub"
+             href="https://github.com/guberm"><span
+        style="color:#000">G</span>itHub</a></li>
+      <li><a target="_blank" rel="noopener" title="Twitter"
+             href="https://twitter.com/guberm"><span
+        style="color:#1da1f2">T</span>witter</a></li>
+      <li><a target="_blank" rel="noopener" title="LinkedIn"
+             href="https://www.linkedin.com/in/michaelguber/"><span
+        style="color:#0077b5">L</span>inkedIn</a></li>
+      <li><a target="_blank" rel="noopener" title="eMail" href="#" id="jsMail"
+             data-local="guberm"
+             data-plus="+github"
+             data-domain="gmail"
+             data-tld=".com">E-<span
+        style="color:#DC4937">M</span>ail</a></li>
+    </ul>
+
+    <small class="hint">No personal support over emails/twitter please. :)</small>
+  </footer>
+</div>
+<script>
+  !function (d) {
+    let l = d.querySelector("#jsMail");
+    let m = [l.dataset.local.split('').join('') + l.dataset.plus, l.dataset.domain + l.dataset.tld].join('@');
+    l.setAttribute('href', 'mailto:' + m);
+  }(document);
+</script>
+<noscript><p>This website does not support non-javascript bots :p</p></noscript>
+</body>
+</html>
