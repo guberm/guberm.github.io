@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(gh api repos/guberm/guberm.github.io/pages)",
+      "Bash(gh api repos/guberm/guberm.github.io/pages/builds/latest)",
+      "WebFetch(domain:guberm.github.io)"
     ]
   }
 }
