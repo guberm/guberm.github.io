@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Michael Guber | .NET & Python Developer</title>
+  <meta name="description" content="Michael Guber (guberm) — .NET/Python developer from Canada. Building automation tools, trading bots, AI integrations, and more.">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="noodp">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="Of2PV-HN-luNF6Q2xaqWAV469eoQ--P4NZRQoyIGqDA"/>
+  <meta property="og:title" content="Michael Guber | .NET & Python Developer">
+  <meta property="og:description" content=".NET/Python developer from Canada building automation, trading bots, AI integrations, and more.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #f78166;
+      --gradient: linear-gradient(135deg, #58a6ff22, #3fb95022);
+      --card-hover: #1c2128;
+      --tag-bg: #21262d;
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --surface2: #eaeef2;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --text-muted: #656d76;
+      --accent: #0969da;
+      --accent2: #1a7f37;
+      --accent3: #cf222e;
+      --gradient: linear-gradient(135deg, #0969da11, #1a7f3711);
+      --card-hover: #eaeef2;
+      --tag-bg: #eaeef2;
+      --shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ---- HEADER ---- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .theme-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover { color: var(--text); border-color: var(--accent); }
+
+    /* ---- HERO ---- */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 .name-highlight {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-outline {
+      border-color: var(--border);
+      color: var(--text-muted);
+      background: var(--surface);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* ---- SKILLS ---- */
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 2rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .skill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ---- PROJECTS ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .project-card:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.3;
+    }
+
+    .project-icon {
+      flex-shrink: 0;
+      opacity: 0.4;
+      font-size: 1rem;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .lang-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding-top: 0.4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .lang-label { display: flex; align-items: center; gap: 4px; }
+
+    /* ---- SOCIAL LINKS ---- */
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 640px) {
+      nav a:not(.theme-btn-wrap a) { display: none; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .section { padding: 3rem 1.25rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">&lt;<span>guberm</span> /&gt;</a>
+  <nav>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-btn" id="themeToggle" title="Toggle theme">☀ Light</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Available for work</div>
+  <h1>Hi, I'm <span class="name-highlight">Michael Guber</span></h1>
+  <p class="hero-sub">
+    .NET &amp; Python developer from Canada, building automation tools,
+    trading bots, AI integrations, Chrome extensions, and cross-platform apps.
+  </p>
+  <div class="hero-links">
+    <a class="btn btn-primary" href="https://github.com/guberm" target="_blank" rel="noopener">
+      ⭐ GitHub Profile
+    </a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/guberm/" target="_blank" rel="noopener">
+      LinkedIn
+    </a>
+    <a class="btn btn-outline" href="#" id="jsMail" data-local="guberm" data-plus="+github" data-domain="gmail" data-tld=".com">
+      Email me
+    </a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-title">Skills &amp; Technologies</div>
+  <div class="section-sub">Languages, frameworks, and tools I work with</div>
+  <div class="skills-grid">
+    <span class="skill-tag"><span class="skill-dot" style="background:#239120"></span>C# / .NET</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#3572A5"></span>Python</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#F1E05A"></span>JavaScript</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#2B7489"></span>TypeScript</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#00B4AB"></span>Dart / Flutter</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#e34c26"></span>HTML / CSS</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#005A9C"></span>ASP.NET Core</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#512BD4"></span>.NET 9 / EF Core</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#00758F"></span>MySQL</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#336791"></span>PostgreSQL</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#589636"></span>SQLite</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#47A248"></span>MongoDB</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#2496ED"></span>Docker</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#CB3837"></span>Selenium / Playwright</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#0088CC"></span>Telegram API</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#EA4335"></span>Gmail API</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#FF6F00"></span>AI / LLM APIs</span>
+    <span class="skill-tag"><span class="skill-dot" style="background:#4285F4"></span>Chrome Extensions</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-title">Public Projects</div>
+  <div class="section-sub">A selection of open-source projects on GitHub</div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="https://github.com/guberm/PlacesRecommendation" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">PlacesRecommendation</div>
+        <div class="project-icon">🗺️</div>
+      </div>
+      <div class="project-desc">Multi-AI place recommendation system with ASP.NET Core, 5 AI providers (OpenAI, Claude, Gemini…), SQLite caching and multi-category filtering.</div>
+      <div class="project-tags">
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">Multi-AI</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">REST API</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/polymarket-bot" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">polymarket-bot</div>
+        <div class="project-icon">📈</div>
+      </div>
+      <div class="project-desc">Autonomous Polymarket trading bot using Claude AI ensemble estimation, Kelly criterion position sizing, and layered risk management.</div>
+      <div class="project-tags">
+        <span class="tag">Trading Bot</span>
+        <span class="tag">Claude AI</span>
+        <span class="tag">Kelly Criterion</span>
+        <span class="tag">Polymarket</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/stock-trading-analysis" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">stock-trading-analysis</div>
+        <div class="project-icon">💹</div>
+      </div>
+      <div class="project-desc">Multi-factor stock trading decision system combining technical analysis, fundamental analysis, and news sentiment scoring.</div>
+      <div class="project-tags">
+        <span class="tag">Technical Analysis</span>
+        <span class="tag">Sentiment</span>
+        <span class="tag">Finance</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/ChromeAIAgent" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">ChromeAIAgent</div>
+        <div class="project-icon">🤖</div>
+      </div>
+      <div class="project-desc">Universal AI Assistant Chrome Extension supporting 10+ AI providers — chat with any page, summarize content, or run custom prompts right from your browser.</div>
+      <div class="project-tags">
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Multi-AI</span>
+        <span class="tag">LLM</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/qwen-tts-server" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">qwen-tts-server</div>
+        <div class="project-icon">🔊</div>
+      </div>
+      <div class="project-desc">Free local TTS server using Qwen3-TTS open-source models — no API keys required. Pairs with a Flutter Android client app.</div>
+      <div class="project-tags">
+        <span class="tag">TTS</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Local AI</span>
+        <span class="tag">Flask</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/waze-alerts-monitor" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">waze-alerts-monitor</div>
+        <div class="project-icon">🚨</div>
+      </div>
+      <div class="project-desc">Real-time Waze alert monitor with voice notifications, GPS tracking, and customizable filtering — keep an eye on road incidents around you.</div>
+      <div class="project-tags">
+        <span class="tag">GPS</span>
+        <span class="tag">Real-time</span>
+        <span class="tag">Waze API</span>
+        <span class="tag">Flutter</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/device-activity-tracker" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">device-activity-tracker</div>
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-desc">Track WhatsApp &amp; Signal online activity via RTT (Round-Trip Time) network analysis — a privacy research tool.</div>
+      <div class="project-tags">
+        <span class="tag">RTT Analysis</span>
+        <span class="tag">Network</span>
+        <span class="tag">Privacy Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#2B7489"></span>TypeScript</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/SimpleFinTelegramBot" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">SimpleFinTelegramBot</div>
+        <div class="project-icon">💳</div>
+      </div>
+      <div class="project-desc">Complete C# solution: Telegram Bot + Web API + WebApp for SimpleFIN bank data integration — track your finances via Telegram.</div>
+      <div class="project-tags">
+        <span class="tag">Telegram Bot</span>
+        <span class="tag">Web API</span>
+        <span class="tag">FinTech</span>
+        <span class="tag">.NET</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/gmail-telegram-bot-csharp" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">gmail-telegram-bot-csharp</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">Telegram + Gmail integration bot in C# (.NET 8) — receive, forward, and manage your emails right from Telegram.</div>
+      <div class="project-tags">
+        <span class="tag">Telegram</span>
+        <span class="tag">Gmail API</span>
+        <span class="tag">.NET 8</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/pos-system-dotnet" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">pos-system-dotnet</div>
+        <div class="project-icon">🛒</div>
+      </div>
+      <div class="project-desc">Modern Point of Sale system built with .NET 9 Web API and Entity Framework Core — inventory, sales, and reporting out of the box.</div>
+      <div class="project-tags">
+        <span class="tag">.NET 9</span>
+        <span class="tag">EF Core</span>
+        <span class="tag">Web API</span>
+        <span class="tag">POS</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/pdf-toolkit" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">pdf-toolkit</div>
+        <div class="project-icon">📄</div>
+      </div>
+      <div class="project-desc">Comprehensive Python toolkit for PDF manipulation with 8+ features: merge, split, compress, extract text/images, add watermarks, and more.</div>
+      <div class="project-tags">
+        <span class="tag">PDF</span>
+        <span class="tag">Automation</span>
+        <span class="tag">CLI</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/guberm/inworld-tts-chrome-ext" target="_blank" rel="noopener">
+      <div class="project-header">
+        <div class="project-name">inworld-tts-chrome-ext</div>
+        <div class="project-icon">🎙️</div>
+      </div>
+      <div class="project-desc">Chrome extension for Inworld TTS with popup, settings panel, and context menu integration — listen to any selected text on any page.</div>
+      <div class="project-tags">
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">TTS</span>
+        <span class="tag">Inworld API</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <a class="btn btn-outline" href="https://github.com/guberm?tab=repositories" target="_blank" rel="noopener">
+      View all repositories on GitHub →
+    </a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="text-align:center;">
+  <div class="section-title">Let's connect</div>
+  <div class="section-sub" style="margin-bottom:1.5rem;">Find me across the internet as <strong>@guberm</strong></div>
+  <div class="socials">
+    <a class="social-link" href="https://github.com/guberm" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+    <a class="social-link" href="https://www.linkedin.com/in/guberm/" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a class="social-link" href="https://twitter.com/guberm" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Twitter / X
+    </a>
+    <a class="social-link" href="https://www.dev.to/guberm" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.73-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"/></svg>
+      Dev.to
+    </a>
+    <a class="social-link" href="#" id="jsMailContact" data-local="guberm" data-plus="+github" data-domain="gmail" data-tld=".com">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
+      Email
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built with vanilla HTML &amp; CSS &nbsp;·&nbsp; <a href="https://github.com/guberm/guberm.github.io" target="_blank" rel="noopener">View source</a> &nbsp;·&nbsp; © 2025 Michael Guber</p>
+</footer>
+
+<script>
+  // Email anti-scraping
+  function buildMail(el) {
+    const m = [el.dataset.local + el.dataset.plus, el.dataset.domain + el.dataset.tld].join('@');
+    el.setAttribute('href', 'mailto:' + m);
+  }
+  buildMail(document.getElementById('jsMail'));
+  buildMail(document.getElementById('jsMailContact'));
+
+  // Theme toggle
+  const btn = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const stored = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', stored);
+  btn.textContent = stored === 'dark' ? '☀ Light' : '☾ Dark';
+
+  btn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    btn.textContent = next === 'dark' ? '☀ Light' : '☾ Dark';
+  });
+</script>
+<noscript><p style="text-align:center;padding:2rem">JavaScript is required for theme switching and email links.</p></noscript>
+</body>
+</html>
