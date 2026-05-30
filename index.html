@@ -250,96 +250,40 @@
     }
 
     /* ---- PROJECTS ---- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1rem;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem 1.4rem;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .project-card:hover {
-      background: var(--card-hover);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-
-    .project-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1.3;
-    }
-
-    .project-icon {
-      flex-shrink: 0;
-      opacity: 0.4;
-      font-size: 1rem;
-    }
-
-    .project-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      flex: 1;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.25rem;
-    }
-
-    .tag {
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
-    }
-
-    .lang-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-right: 4px;
-      vertical-align: middle;
-    }
-
-    .project-footer {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      padding-top: 0.4rem;
-      border-top: 1px solid var(--border);
-    }
-
+    .projects-shell { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 18px; padding: 1.25rem; background: radial-gradient(circle at 20% 0%, rgba(88,166,255,0.16), transparent 32%), radial-gradient(circle at 80% 20%, rgba(63,185,80,0.12), transparent 30%), var(--surface); box-shadow: var(--shadow); }
+    .projects-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: end; margin-bottom: 1.25rem; }
+    .projects-kicker { display: inline-flex; color: var(--accent); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
+    .projects-heading { font-size: clamp(1.65rem, 4vw, 2.4rem); line-height: 1.05; letter-spacing: -0.045em; margin-bottom: 0.55rem; }
+    .projects-copy { color: var(--text-muted); max-width: 720px; font-size: 0.96rem; }
+    .projects-stat { min-width: 150px; text-align: right; color: var(--text-muted); font-size: 0.8rem; }
+    .projects-stat strong { display: block; color: var(--text); font-size: 2rem; line-height: 1; letter-spacing: -0.04em; }
+    .project-controls { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 0.85rem; align-items: start; margin-bottom: 1.25rem; }
+    .project-search { width: 100%; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in srgb, var(--bg) 58%, transparent); color: var(--text); padding: 0.78rem 1rem; outline: none; font: inherit; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
+    .project-search:focus { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+    .project-filters { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: flex-end; }
+    .project-filter { border: 1px solid var(--border); border-radius: 999px; background: color-mix(in srgb, var(--surface2) 80%, transparent); color: var(--text-muted); padding: 0.45rem 0.7rem; cursor: pointer; font-size: 0.78rem; transition: all 0.2s; }
+    .project-filter span { opacity: 0.72; margin-left: 0.25rem; }
+    .project-filter:hover, .project-filter.active { color: var(--text); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, var(--surface)); transform: translateY(-1px); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.95rem; }
+    .project-card { position: relative; min-height: 250px; background: color-mix(in srgb, var(--surface) 84%, var(--bg)); border: 1px solid color-mix(in srgb, var(--border) 86%, transparent); border-radius: 14px; padding: 1rem; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; gap: 0.75rem; overflow: hidden; }
+    .project-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg, rgba(255,255,255,0.055), transparent 42%); opacity: 0; transition: opacity 0.2s; }
+    .project-card:hover { background: var(--card-hover); border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .project-card:hover::before { opacity: 1; }
+    .project-card.hidden { display: none; }
+    .project-topline { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.72rem; }
+    .project-category { display: inline-flex; align-items: center; gap: 0.35rem; border: 1px solid var(--border); border-radius: 999px; padding: 0.18rem 0.5rem; background: color-mix(in srgb, var(--bg) 48%, transparent); white-space: nowrap; }
+    .project-stars { color: var(--text-muted); white-space: nowrap; }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+    .project-name { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.25; letter-spacing: -0.025em; overflow-wrap: anywhere; }
+    .project-icon { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; flex-shrink: 0; border-radius: 10px; background: color-mix(in srgb, var(--accent) 13%, var(--surface2)); border: 1px solid var(--border); font-size: 1.1rem; }
+    .project-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.58; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; }
+    .tag { font-size: 0.72rem; padding: 0.18rem 0.48rem; border-radius: 999px; background: var(--tag-bg); border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.01em; }
+    .lang-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+    .project-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.78rem; color: var(--text-muted); padding-top: 0.55rem; border-top: 1px solid var(--border); }
     .lang-label { display: flex; align-items: center; gap: 4px; }
+    .project-empty { display: none; text-align: center; color: var(--text-muted); padding: 2rem; border: 1px dashed var(--border); border-radius: 14px; margin-top: 1rem; background: color-mix(in srgb, var(--bg) 35%, transparent); }
+    .project-empty.visible { display: block; }
 
     /* ---- SOCIAL LINKS ---- */
     .socials {
@@ -386,6 +330,9 @@
       nav a:not(.theme-btn-wrap a) { display: none; }
       .hero { padding: 3rem 1.25rem 2.5rem; }
       .section { padding: 3rem 1.25rem; }
+      .projects-intro, .project-controls { grid-template-columns: 1fr; }
+      .projects-stat { text-align: left; }
+      .project-filters { justify-content: flex-start; }
       .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -456,214 +403,1179 @@
 
 <!-- PROJECTS -->
 <section class="section" id="projects">
-  <div class="section-title">Public Projects</div>
-  <div class="section-sub">A selection of open-source projects on GitHub</div>
-  <div class="projects-grid">
-
-    <a class="project-card" href="https://github.com/guberm/PlacesRecommendation" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">PlacesRecommendation</div>
-        <div class="project-icon">🗺️</div>
+  <div class="projects-shell">
+    <div class="projects-intro">
+      <div>
+        <div class="projects-kicker">GitHub portfolio</div>
+        <h2 class="projects-heading">Public projects, organized by category</h2>
+        <p class="projects-copy">A curated view of all public, non-fork repositories on GitHub - from AI assistants and Chrome extensions to finance bots, Android utilities, automation tools, and legacy research archives.</p>
       </div>
-      <div class="project-desc">Multi-AI place recommendation system with ASP.NET Core, 5 AI providers (OpenAI, Claude, Gemini…), SQLite caching and multi-category filtering.</div>
+      <div class="projects-stat"><strong id="projectCounter">58</strong> visible projects</div>
+    </div>
+    <div class="project-controls">
+      <input class="project-search" id="projectSearch" type="search" placeholder="Search projects, tech, or category…" aria-label="Search projects">
+      <div class="project-filters" aria-label="Project category filters">
+        <button class="project-filter active" type="button" data-filter="all" aria-pressed="true">All <span>58</span></button>
+        <button class="project-filter" type="button" data-filter="ai-llm" aria-pressed="false">🤖 AI &amp; LLM <span>8</span></button>
+        <button class="project-filter" type="button" data-filter="chrome-extensions" aria-pressed="false">🧩 Chrome Extensions <span>12</span></button>
+        <button class="project-filter" type="button" data-filter="bots-integrations" aria-pressed="false">🔗 Bots &amp; Integrations <span>6</span></button>
+        <button class="project-filter" type="button" data-filter="mobile-desktop" aria-pressed="false">📱 Mobile &amp; Desktop <span>8</span></button>
+        <button class="project-filter" type="button" data-filter="finance-trading" aria-pressed="false">📈 Finance &amp; Trading <span>4</span></button>
+        <button class="project-filter" type="button" data-filter="developer-tools" aria-pressed="false">🛠️ Developer Tools <span>8</span></button>
+        <button class="project-filter" type="button" data-filter="data-documents" aria-pressed="false">📄 Data &amp; Documents <span>3</span></button>
+        <button class="project-filter" type="button" data-filter="web-portfolio" aria-pressed="false">🌐 Web &amp; Portfolio <span>3</span></button>
+        <button class="project-filter" type="button" data-filter="legacy-research" aria-pressed="false">🗄️ Legacy / Research <span>6</span></button>
+      </div>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
+    <a class="project-card" href="https://github.com/guberm/inworld-tts-app" target="_blank" rel="noopener" data-category="ai-llm" data-search="inworld-tts-app ai &amp; llm flutter android app for inworld tts with voice selection, text sharing, and full api configuration. dart dart tts ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">inworld-tts-app</div>
+        <div class="project-icon">🔊</div>
+      </div>
+      <div class="project-desc">Flutter Android app for Inworld TTS with voice selection, text sharing, and full API configuration.</div>
       <div class="project-tags">
-        <span class="tag">ASP.NET Core</span>
-        <span class="tag">Multi-AI</span>
-        <span class="tag">SQLite</span>
-        <span class="tag">REST API</span>
+        <span class="tag">Dart</span>
+        <span class="tag">TTS</span>
+        <span class="tag">AI / LLM</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/polymarket-bot" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">polymarket-bot</div>
-        <div class="project-icon">📈</div>
+    <a class="project-card" href="https://github.com/guberm/qwen-tts-app" target="_blank" rel="noopener" data-category="ai-llm" data-search="qwen-tts-app ai &amp; llm flutter android client for qwen3-tts, providing free text-to-speech backed by open-source models. dart dart tts qwen ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 1</span>
       </div>
-      <div class="project-desc">Autonomous Polymarket trading bot using Claude AI ensemble estimation, Kelly criterion position sizing, and layered risk management.</div>
+      <div class="project-header">
+        <div class="project-name">qwen-tts-app</div>
+        <div class="project-icon">🔊</div>
+      </div>
+      <div class="project-desc">Flutter Android client for Qwen3-TTS, providing free text-to-speech backed by open-source models.</div>
       <div class="project-tags">
-        <span class="tag">Trading Bot</span>
-        <span class="tag">Claude AI</span>
-        <span class="tag">Kelly Criterion</span>
-        <span class="tag">Polymarket</span>
+        <span class="tag">Dart</span>
+        <span class="tag">TTS</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">AI / LLM</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/stock-trading-analysis" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">stock-trading-analysis</div>
-        <div class="project-icon">💹</div>
+    <a class="project-card" href="https://github.com/guberm/google-colab" target="_blank" rel="noopener" data-category="ai-llm" data-search="google-colab ai &amp; llm public google colab workspace for notebooks, experiments, and quick research prototypes. other ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 0</span>
       </div>
-      <div class="project-desc">Multi-factor stock trading decision system combining technical analysis, fundamental analysis, and news sentiment scoring.</div>
+      <div class="project-header">
+        <div class="project-name">google-colab</div>
+        <div class="project-icon">📓</div>
+      </div>
+      <div class="project-desc">Public Google Colab workspace for notebooks, experiments, and quick research prototypes.</div>
       <div class="project-tags">
-        <span class="tag">Technical Analysis</span>
-        <span class="tag">Sentiment</span>
-        <span class="tag">Finance</span>
+        <span class="tag">AI / LLM</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#8b949e"></span>Other</span>
+        <span>2024</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/ChromeAIAgent" target="_blank" rel="noopener">
+    <a class="project-card" href="https://github.com/guberm/LMStudioChatApp" target="_blank" rel="noopener" data-category="ai-llm" data-search="lmstudiochatapp ai &amp; llm android chat client for lm studio local servers with streaming responses, multiple connections, and chat history. kotlin kotlin local llm ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 0</span>
+      </div>
       <div class="project-header">
-        <div class="project-name">ChromeAIAgent</div>
+        <div class="project-name">LMStudioChatApp</div>
         <div class="project-icon">🤖</div>
       </div>
-      <div class="project-desc">Universal AI Assistant Chrome Extension supporting 10+ AI providers — chat with any page, summarize content, or run custom prompts right from your browser.</div>
+      <div class="project-desc">Android chat client for LM Studio local servers with streaming responses, multiple connections, and chat history.</div>
       <div class="project-tags">
-        <span class="tag">Chrome Extension</span>
-        <span class="tag">Multi-AI</span>
-        <span class="tag">LLM</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">Local LLM</span>
+        <span class="tag">AI / LLM</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/qwen-tts-server" target="_blank" rel="noopener">
+    <a class="project-card" href="https://github.com/guberm/MyColab" target="_blank" rel="noopener" data-category="ai-llm" data-search="mycolab ai &amp; llm collection of google colab notebooks for experiments, prototyping, and ai/data workflows. jupyter notebook jupyter notebook ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">MyColab</div>
+        <div class="project-icon">📓</div>
+      </div>
+      <div class="project-desc">Collection of Google Colab notebooks for experiments, prototyping, and AI/data workflows.</div>
+      <div class="project-tags">
+        <span class="tag">Jupyter Notebook</span>
+        <span class="tag">AI / LLM</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/PlacesRecommendation" target="_blank" rel="noopener" data-category="ai-llm" data-search="placesrecommendation ai &amp; llm multi-ai place recommendation api using asp.net core, multiple llm providers, sqlite caching, and category filters. c# c# ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">PlacesRecommendation</div>
+        <div class="project-icon">🤖</div>
+      </div>
+      <div class="project-desc">Multi-AI place recommendation API using ASP.NET Core, multiple LLM providers, SQLite caching, and category filters.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">AI / LLM</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/qwen-tts-server" target="_blank" rel="noopener" data-category="ai-llm" data-search="qwen-tts-server ai &amp; llm local qwen3-tts server for running open-source text-to-speech models without external api keys. python python tts qwen ai / llm">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 0</span>
+      </div>
       <div class="project-header">
         <div class="project-name">qwen-tts-server</div>
         <div class="project-icon">🔊</div>
       </div>
-      <div class="project-desc">Free local TTS server using Qwen3-TTS open-source models — no API keys required. Pairs with a Flutter Android client app.</div>
+      <div class="project-desc">Local Qwen3-TTS server for running open-source text-to-speech models without external API keys.</div>
       <div class="project-tags">
+        <span class="tag">Python</span>
         <span class="tag">TTS</span>
-        <span class="tag">Open Source</span>
-        <span class="tag">Local AI</span>
-        <span class="tag">Flask</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">AI / LLM</span>
       </div>
       <div class="project-footer">
         <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/waze-alerts-monitor" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">waze-alerts-monitor</div>
-        <div class="project-icon">🚨</div>
+    <a class="project-card" href="https://github.com/guberm/telegram-tts-bot" target="_blank" rel="noopener" data-category="ai-llm" data-search="telegram-tts-bot ai &amp; llm telegram bot that turns text messages into mp3 voice output using edge tts. python python telegram tts bot">
+      <div class="project-topline">
+        <span class="project-category">🤖 AI &amp; LLM</span>
+        <span class="project-stars">★ 0</span>
       </div>
-      <div class="project-desc">Real-time Waze alert monitor with voice notifications, GPS tracking, and customizable filtering — keep an eye on road incidents around you.</div>
+      <div class="project-header">
+        <div class="project-name">telegram-tts-bot</div>
+        <div class="project-icon">📨</div>
+      </div>
+      <div class="project-desc">Telegram bot that turns text messages into MP3 voice output using Edge TTS.</div>
       <div class="project-tags">
-        <span class="tag">GPS</span>
-        <span class="tag">Real-time</span>
-        <span class="tag">Waze API</span>
-        <span class="tag">Flutter</span>
+        <span class="tag">Python</span>
+        <span class="tag">Telegram</span>
+        <span class="tag">TTS</span>
+        <span class="tag">Bot</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/device-activity-tracker" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">device-activity-tracker</div>
-        <div class="project-icon">📱</div>
+    <a class="project-card" href="https://github.com/guberm/ChromeAIAgent" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="chromeaiagent chrome extensions universal ai assistant extension for chatting with pages, summarizing content, and using 10+ llm providers. javascript javascript chrome extension chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 3</span>
       </div>
-      <div class="project-desc">Track WhatsApp &amp; Signal online activity via RTT (Round-Trip Time) network analysis — a privacy research tool.</div>
+      <div class="project-header">
+        <div class="project-name">ChromeAIAgent</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Universal AI assistant extension for chatting with pages, summarizing content, and using 10+ LLM providers.</div>
       <div class="project-tags">
-        <span class="tag">RTT Analysis</span>
-        <span class="tag">Network</span>
-        <span class="tag">Privacy Research</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Chrome Extensions</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#2B7489"></span>TypeScript</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/SimpleFinTelegramBot" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">SimpleFinTelegramBot</div>
-        <div class="project-icon">💳</div>
+    <a class="project-card" href="https://github.com/guberm/Dynamic-Ad-Remover-Chrome-Extension" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="dynamic-ad-remover-chrome-extension chrome extensions a lightweight chrome extension that allows you to dynamically remove unwanted elements from web pages using customizable css selectors. javascript javascript chrome extension chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 1</span>
       </div>
-      <div class="project-desc">Complete C# solution: Telegram Bot + Web API + WebApp for SimpleFIN bank data integration — track your finances via Telegram.</div>
+      <div class="project-header">
+        <div class="project-name">Dynamic-Ad-Remover-Chrome-Extension</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">A lightweight Chrome extension that allows you to dynamically remove unwanted elements from web pages using customizable CSS selectors.</div>
       <div class="project-tags">
-        <span class="tag">Telegram Bot</span>
-        <span class="tag">Web API</span>
-        <span class="tag">FinTech</span>
-        <span class="tag">.NET</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Chrome Extensions</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/gmail-telegram-bot-csharp" target="_blank" rel="noopener">
+    <a class="project-card" href="https://github.com/guberm/gmail-regex-manager" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="gmail-regex-manager chrome extensions chrome extension for managing gmail with regex-based rules. javascript javascript gmail chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">gmail-regex-manager</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">Chrome extension for managing Gmail with regex-based rules.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/gmail-share-extension" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="gmail-share-extension chrome extensions gmail share extension with multiple account support. html html gmail chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">gmail-share-extension</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">Gmail Share Extension with multiple account support.</div>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#e34c26"></span>HTML</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/inworld-tts-chrome-ext" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="inworld-tts-chrome-ext chrome extensions chrome extension for inworld tts with popup controls, settings, and context-menu playback for selected text. javascript javascript chrome extension tts chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">inworld-tts-chrome-ext</div>
+        <div class="project-icon">🔊</div>
+      </div>
+      <div class="project-desc">Chrome extension for Inworld TTS with popup controls, settings, and context-menu playback for selected text.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">TTS</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/Universal-Article-To-Gmail-Chrome-Extension" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="universal-article-to-gmail-chrome-extension chrome extensions chrome extension that extracts articles with formatting and automatically inserts them into gmail compose with intelligent field detection. javascript javascript gmail chrome extension chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">Universal-Article-To-Gmail-Chrome-Extension</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">Chrome extension that extracts articles with formatting and automatically inserts them into Gmail compose with intelligent field detection.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/chrome-stats-monitor" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="chrome-stats-monitor chrome extensions monitor chrome web store extension stats with email notifications. javascript javascript chrome extension chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">chrome-stats-monitor</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Monitor Chrome Web Store extension stats with email notifications.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/ChromeStats" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="chromestats chrome extensions monitor chrome web store extension statistics and send email notifications on changes for each extension separately. javascript javascript chrome extension chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">ChromeStats</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Monitor Chrome Web Store extension statistics and send email notifications on changes for each extension separately.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/facebook-messenger-chat-export" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="facebook-messenger-chat-export chrome extensions chrome extension to export facebook messenger chat history to json or text. javascript javascript chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">facebook-messenger-chat-export</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Chrome extension to export Facebook Messenger chat history to JSON or text.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/gmail-regex-search" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="gmail-regex-search chrome extensions chrome extension for regex-powered gmail search — filter visible emails or search your entire inbox via gmail api. javascript javascript gmail chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">gmail-regex-search</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">Chrome extension for regex-powered Gmail search — filter visible emails or search your entire inbox via Gmail API.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/pushbullet-chrome-extension" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="pushbullet-chrome-extension chrome extensions pushbullet chrome extension source. javascript javascript chrome extension chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">pushbullet-chrome-extension</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Pushbullet Chrome Extension source.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/whatsapp-web-chat-export" target="_blank" rel="noopener" data-category="chrome-extensions" data-search="whatsapp-web-chat-export chrome extensions chrome extension to export whatsapp web conversations to json, plain text, or self-contained html. javascript javascript chrome extensions">
+      <div class="project-topline">
+        <span class="project-category">🧩 Chrome Extensions</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">whatsapp-web-chat-export</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Chrome extension to export WhatsApp Web conversations to JSON, plain text, or self-contained HTML.</div>
+      <div class="project-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Extensions</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/gmail-telegram-bot" target="_blank" rel="noopener" data-category="bots-integrations" data-search="gmail-telegram-bot bots &amp; integrations python telegram bot for gmail automation, attachment handling, auto-fetch, and database-backed email tracking. python python telegram gmail bot">
+      <div class="project-topline">
+        <span class="project-category">🔗 Bots &amp; Integrations</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">gmail-telegram-bot</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">Python Telegram bot for Gmail automation, attachment handling, auto-fetch, and database-backed email tracking.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Telegram</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Bot</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2025</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/gmail-telegram-bot-csharp" target="_blank" rel="noopener" data-category="bots-integrations" data-search="gmail-telegram-bot-csharp bots &amp; integrations .net 8 telegram and gmail bot for forwarding emails to telegram with action controls and attachments. c# c# telegram gmail bot">
+      <div class="project-topline">
+        <span class="project-category">🔗 Bots &amp; Integrations</span>
+        <span class="project-stars">★ 1</span>
+      </div>
       <div class="project-header">
         <div class="project-name">gmail-telegram-bot-csharp</div>
         <div class="project-icon">📧</div>
       </div>
-      <div class="project-desc">Telegram + Gmail integration bot in C# (.NET 8) — receive, forward, and manage your emails right from Telegram.</div>
+      <div class="project-desc">.NET 8 Telegram and Gmail bot for forwarding emails to Telegram with action controls and attachments.</div>
       <div class="project-tags">
+        <span class="tag">C#</span>
         <span class="tag">Telegram</span>
-        <span class="tag">Gmail API</span>
-        <span class="tag">.NET 8</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Bot</span>
       </div>
       <div class="project-footer">
         <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2025</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/pos-system-dotnet" target="_blank" rel="noopener">
+    <a class="project-card" href="https://github.com/guberm/gmail-tg-app" target="_blank" rel="noopener" data-category="bots-integrations" data-search="gmail-tg-app bots &amp; integrations typescript application connecting gmail workflows with telegram-based message handling. typescript typescript gmail bots / integrations">
+      <div class="project-topline">
+        <span class="project-category">🔗 Bots &amp; Integrations</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">gmail-tg-app</div>
+        <div class="project-icon">📧</div>
+      </div>
+      <div class="project-desc">TypeScript application connecting Gmail workflows with Telegram-based message handling.</div>
+      <div class="project-tags">
+        <span class="tag">TypeScript</span>
+        <span class="tag">Gmail</span>
+        <span class="tag">Bots / Integrations</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/telegram_saved_messages_export" target="_blank" rel="noopener" data-category="bots-integrations" data-search="telegram_saved_messages_export bots &amp; integrations python exporter for telegram saved messages, designed for personal backups and searchable archives. python python telegram bots / integrations">
+      <div class="project-topline">
+        <span class="project-category">🔗 Bots &amp; Integrations</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">telegram_saved_messages_export</div>
+        <div class="project-icon">📨</div>
+      </div>
+      <div class="project-desc">Python exporter for Telegram Saved Messages, designed for personal backups and searchable archives.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Telegram</span>
+        <span class="tag">Bots / Integrations</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2025</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/Android-SMS-Forwarder" target="_blank" rel="noopener" data-category="bots-integrations" data-search="android-sms-forwarder bots &amp; integrations background android service that syncs incoming sms messages to google sheets and forwards them to gmail. kotlin kotlin android bots / integrations">
+      <div class="project-topline">
+        <span class="project-category">🔗 Bots &amp; Integrations</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">Android-SMS-Forwarder</div>
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-desc">Background Android service that syncs incoming SMS messages to Google Sheets and forwards them to Gmail.</div>
+      <div class="project-tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">Android</span>
+        <span class="tag">Bots / Integrations</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/tg-custom-notifier" target="_blank" rel="noopener" data-category="bots-integrations" data-search="tg-custom-notifier bots &amp; integrations android notification helper for custom telegram-style alerts and personal workflow notifications. kotlin kotlin bots / integrations">
+      <div class="project-topline">
+        <span class="project-category">🔗 Bots &amp; Integrations</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">tg-custom-notifier</div>
+        <div class="project-icon">🔗</div>
+      </div>
+      <div class="project-desc">Android notification helper for custom Telegram-style alerts and personal workflow notifications.</div>
+      <div class="project-tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">Bots / Integrations</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/AutoStartManager" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="autostartmanager mobile &amp; desktop android utility for managing autostart receivers and force-stopping apps through shizuku-powered system access. kotlin kotlin mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">AutoStartManager</div>
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-desc">Android utility for managing autostart receivers and force-stopping apps through Shizuku-powered system access.</div>
+      <div class="project-tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/Google-Drive-Backup-Flutter-Android" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="google-drive-backup-flutter-android mobile &amp; desktop flutter android app for google drive backup workflows and mobile-first file protection. dart dart android flutter mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">Google-Drive-Backup-Flutter-Android</div>
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-desc">Flutter Android app for Google Drive backup workflows and mobile-first file protection.</div>
+      <div class="project-tags">
+        <span class="tag">Dart</span>
+        <span class="tag">Android</span>
+        <span class="tag">Flutter</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+        <span>2025</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/markdown-viewer-tts" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="markdown-viewer-tts mobile &amp; desktop android markdown viewer with tag browsing, font controls, and offline-friendly text-to-speech playback. kotlin kotlin tts mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">markdown-viewer-tts</div>
+        <div class="project-icon">🔊</div>
+      </div>
+      <div class="project-desc">Android Markdown viewer with tag browsing, font controls, and offline-friendly text-to-speech playback.</div>
+      <div class="project-tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">TTS</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/markdown-viewer-tts-windows" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="markdown-viewer-tts-windows mobile &amp; desktop flutter windows markdown reader with tag navigation, recent files, typography controls, and built-in text-to-speech. dart dart tts mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">markdown-viewer-tts-windows</div>
+        <div class="project-icon">🔊</div>
+      </div>
+      <div class="project-desc">Flutter Windows Markdown reader with tag navigation, recent files, typography controls, and built-in text-to-speech.</div>
+      <div class="project-tags">
+        <span class="tag">Dart</span>
+        <span class="tag">TTS</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/PlacesAndroidApp" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="placesandroidapp mobile &amp; desktop android companion app for place discovery and recommendations, built around mobile-first search flows. kotlin kotlin android mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">PlacesAndroidApp</div>
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-desc">Android companion app for place discovery and recommendations, built around mobile-first search flows.</div>
+      <div class="project-tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">Android</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/waze-alerts-monitor" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="waze-alerts-monitor mobile &amp; desktop real-time waze alert monitor with voice notifications, gps tracking, and customizable incident filtering. dart dart waze mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">waze-alerts-monitor</div>
+        <div class="project-icon">🚗</div>
+      </div>
+      <div class="project-desc">Real-time Waze alert monitor with voice notifications, GPS tracking, and customizable incident filtering.</div>
+      <div class="project-tags">
+        <span class="tag">Dart</span>
+        <span class="tag">Waze</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#00B4AB"></span>Dart</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/waze-alerts-notifier" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="waze-alerts-notifier mobile &amp; desktop android notifier for waze road alerts with focused, on-device incident monitoring. kotlin kotlin waze mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">waze-alerts-notifier</div>
+        <div class="project-icon">🚗</div>
+      </div>
+      <div class="project-desc">Android notifier for Waze road alerts with focused, on-device incident monitoring.</div>
+      <div class="project-tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">Waze</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#A97BFF"></span>Kotlin</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/WorkstationApp" target="_blank" rel="noopener" data-category="mobile-desktop" data-search="workstationapp mobile &amp; desktop c# application for controlling a pc from an android device through a custom workstation workflow. c# c# mobile / desktop">
+      <div class="project-topline">
+        <span class="project-category">📱 Mobile &amp; Desktop</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">WorkstationApp</div>
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-desc">C# application for controlling a PC from an Android device through a custom workstation workflow.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Mobile / Desktop</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2020</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/polymarket-bot" target="_blank" rel="noopener" data-category="finance-trading" data-search="polymarket-bot finance &amp; trading autonomous polymarket trading bot using claude ensemble estimation, kelly sizing, and layered risk controls. c# c# bot finance / trading">
+      <div class="project-topline">
+        <span class="project-category">📈 Finance &amp; Trading</span>
+        <span class="project-stars">★ 7</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">polymarket-bot</div>
+        <div class="project-icon">📈</div>
+      </div>
+      <div class="project-desc">Autonomous Polymarket trading bot using Claude ensemble estimation, Kelly sizing, and layered risk controls.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Bot</span>
+        <span class="tag">Finance / Trading</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/SimpleFinTelegramBot" target="_blank" rel="noopener" data-category="finance-trading" data-search="simplefintelegrambot finance &amp; trading c# telegram bot, web api, and webapp for secure simplefin banking data access with sqlite storage. c# c# telegram bot finance / trading">
+      <div class="project-topline">
+        <span class="project-category">📈 Finance &amp; Trading</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">SimpleFinTelegramBot</div>
+        <div class="project-icon">📨</div>
+      </div>
+      <div class="project-desc">C# Telegram bot, Web API, and WebApp for secure SimpleFIN banking data access with SQLite storage.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Telegram</span>
+        <span class="tag">Bot</span>
+        <span class="tag">Finance / Trading</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2025</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/stock-trading-analysis" target="_blank" rel="noopener" data-category="finance-trading" data-search="stock-trading-analysis finance &amp; trading multi-factor stock decision system combining technical indicators, fundamentals, and news sentiment scoring. c# c# trading finance / trading">
+      <div class="project-topline">
+        <span class="project-category">📈 Finance &amp; Trading</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">stock-trading-analysis</div>
+        <div class="project-icon">💹</div>
+      </div>
+      <div class="project-desc">Multi-factor stock decision system combining technical indicators, fundamentals, and news sentiment scoring.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Trading</span>
+        <span class="tag">Finance / Trading</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/wealthsimple-trading-bot" target="_blank" rel="noopener" data-category="finance-trading" data-search="wealthsimple-trading-bot finance &amp; trading automated wealthsimple portfolio rebalancing bot for tsx stocks and etfs with scheduled execution. c# c# trading bot finance / trading">
+      <div class="project-topline">
+        <span class="project-category">📈 Finance &amp; Trading</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">wealthsimple-trading-bot</div>
+        <div class="project-icon">💼</div>
+      </div>
+      <div class="project-desc">Automated Wealthsimple portfolio rebalancing bot for TSX stocks and ETFs with scheduled execution.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Trading</span>
+        <span class="tag">Bot</span>
+        <span class="tag">Finance / Trading</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/SeleniumCommon" target="_blank" rel="noopener" data-category="developer-tools" data-search="seleniumcommon developer tools .net selenium utility library with driver management, screenshots, pdf helpers, database integration, and reports. c# c# selenium developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 2</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">SeleniumCommon</div>
+        <div class="project-icon">🧪</div>
+      </div>
+      <div class="project-desc">.NET Selenium utility library with driver management, screenshots, PDF helpers, database integration, and reports.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Selenium</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2025</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/device-activity-tracker" target="_blank" rel="noopener" data-category="developer-tools" data-search="device-activity-tracker developer tools privacy research tool that studies whatsapp and signal device activity using rtt network analysis. typescript typescript developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">device-activity-tracker</div>
+        <div class="project-icon">🛠️</div>
+      </div>
+      <div class="project-desc">Privacy research tool that studies WhatsApp and Signal device activity using RTT network analysis.</div>
+      <div class="project-tags">
+        <span class="tag">TypeScript</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/GetLatestChromeDriver" target="_blank" rel="noopener" data-category="developer-tools" data-search="getlatestchromedriver developer tools automated chromedriver updater that detects chrome versions and downloads the matching driver for selenium. c# c# chrome extension developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">GetLatestChromeDriver</div>
+        <div class="project-icon">🧩</div>
+      </div>
+      <div class="project-desc">Automated ChromeDriver updater that detects Chrome versions and downloads the matching driver for Selenium.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2025</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/pos-system-dotnet" target="_blank" rel="noopener" data-category="developer-tools" data-search="pos-system-dotnet developer tools modern .net 9 point-of-sale api with ef core, product catalog, customer management, and reporting foundations. c# c# developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 1</span>
+      </div>
       <div class="project-header">
         <div class="project-name">pos-system-dotnet</div>
-        <div class="project-icon">🛒</div>
+        <div class="project-icon">🛠️</div>
       </div>
-      <div class="project-desc">Modern Point of Sale system built with .NET 9 Web API and Entity Framework Core — inventory, sales, and reporting out of the box.</div>
+      <div class="project-desc">Modern .NET 9 point-of-sale API with EF Core, product catalog, customer management, and reporting foundations.</div>
       <div class="project-tags">
-        <span class="tag">.NET 9</span>
-        <span class="tag">EF Core</span>
-        <span class="tag">Web API</span>
-        <span class="tag">POS</span>
+        <span class="tag">C#</span>
+        <span class="tag">Developer Tools</span>
       </div>
       <div class="project-footer">
         <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2025</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/pdf-toolkit" target="_blank" rel="noopener">
+    <a class="project-card" href="https://github.com/guberm/apks-installer" target="_blank" rel="noopener" data-category="developer-tools" data-search="apks-installer developer tools python adb utility for installing android split apk packages such as apkm and apks files. python python developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">apks-installer</div>
+        <div class="project-icon">📦</div>
+      </div>
+      <div class="project-desc">Python ADB utility for installing Android split APK packages such as APKM and APKS files.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/claude-switcher" target="_blank" rel="noopener" data-category="developer-tools" data-search="claude-switcher developer tools system tray utility for switching between multiple claude code accounts. c# c# developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">claude-switcher</div>
+        <div class="project-icon">🛠️</div>
+      </div>
+      <div class="project-desc">System tray utility for switching between multiple Claude Code accounts.</div>
+      <div class="project-tags">
+        <span class="tag">C#</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#239120"></span>C#</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/Download-APK" target="_blank" rel="noopener" data-category="developer-tools" data-search="download-apk developer tools python script for downloading apk files from android devices to a local machine through adb. python python developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">Download-APK</div>
+        <div class="project-icon">📦</div>
+      </div>
+      <div class="project-desc">Python script for downloading APK files from Android devices to a local machine through ADB.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2024</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/website-cloner" target="_blank" rel="noopener" data-category="developer-tools" data-search="website-cloner developer tools playwright-based website mirroring tool with resource downloads, offline link rewriting, cookies, and link filters. python python developer tools">
+      <div class="project-topline">
+        <span class="project-category">🛠️ Developer Tools</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">website-cloner</div>
+        <div class="project-icon">🕸️</div>
+      </div>
+      <div class="project-desc">Playwright-based website mirroring tool with resource downloads, offline link rewriting, cookies, and link filters.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Developer Tools</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/pdf-to-image" target="_blank" rel="noopener" data-category="data-documents" data-search="pdf-to-image data &amp; documents python utility for converting pdf pages into individual jpeg images with configurable resolution. python python pdf data / documents">
+      <div class="project-topline">
+        <span class="project-category">📄 Data &amp; Documents</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">pdf-to-image</div>
+        <div class="project-icon">📄</div>
+      </div>
+      <div class="project-desc">Python utility for converting PDF pages into individual JPEG images with configurable resolution.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">PDF</span>
+        <span class="tag">Data / Documents</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/pdf-toolkit" target="_blank" rel="noopener" data-category="data-documents" data-search="pdf-toolkit data &amp; documents python pdf automation toolkit for splitting, merging, rotating, compressing, watermarking, converting, and inspecting files. python python pdf data / documents">
+      <div class="project-topline">
+        <span class="project-category">📄 Data &amp; Documents</span>
+        <span class="project-stars">★ 0</span>
+      </div>
       <div class="project-header">
         <div class="project-name">pdf-toolkit</div>
         <div class="project-icon">📄</div>
       </div>
-      <div class="project-desc">Comprehensive Python toolkit for PDF manipulation with 8+ features: merge, split, compress, extract text/images, add watermarks, and more.</div>
+      <div class="project-desc">Python PDF automation toolkit for splitting, merging, rotating, compressing, watermarking, converting, and inspecting files.</div>
       <div class="project-tags">
+        <span class="tag">Python</span>
         <span class="tag">PDF</span>
-        <span class="tag">Automation</span>
-        <span class="tag">CLI</span>
+        <span class="tag">Data / Documents</span>
       </div>
       <div class="project-footer">
         <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2026</span>
       </div>
     </a>
-
-    <a class="project-card" href="https://github.com/guberm/inworld-tts-chrome-ext" target="_blank" rel="noopener">
-      <div class="project-header">
-        <div class="project-name">inworld-tts-chrome-ext</div>
-        <div class="project-icon">🎙️</div>
+    <a class="project-card" href="https://github.com/guberm/Rutracker-Parser" target="_blank" rel="noopener" data-category="data-documents" data-search="rutracker-parser data &amp; documents python parser for extracting and processing rutracker data for personal automation workflows. python python data / documents">
+      <div class="project-topline">
+        <span class="project-category">📄 Data &amp; Documents</span>
+        <span class="project-stars">★ 0</span>
       </div>
-      <div class="project-desc">Chrome extension for Inworld TTS with popup, settings panel, and context menu integration — listen to any selected text on any page.</div>
+      <div class="project-header">
+        <div class="project-name">Rutracker-Parser</div>
+        <div class="project-icon">📄</div>
+      </div>
+      <div class="project-desc">Python parser for extracting and processing RuTracker data for personal automation workflows.</div>
       <div class="project-tags">
-        <span class="tag">Chrome Extension</span>
-        <span class="tag">TTS</span>
-        <span class="tag">Inworld API</span>
+        <span class="tag">Python</span>
+        <span class="tag">Data / Documents</span>
       </div>
       <div class="project-footer">
-        <span class="lang-label"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2024</span>
       </div>
     </a>
-
-  </div>
-
-  <div style="text-align:center; margin-top:2rem;">
-    <a class="btn btn-outline" href="https://github.com/guberm?tab=repositories" target="_blank" rel="noopener">
-      View all repositories on GitHub →
+    <a class="project-card" href="https://github.com/guberm/guberm.github.io" target="_blank" rel="noopener" data-category="web-portfolio" data-search="guberm.github.io web &amp; portfolio personal portfolio and developer profile site showcasing skills, public projects, and contact links. html html web / portfolio">
+      <div class="project-topline">
+        <span class="project-category">🌐 Web &amp; Portfolio</span>
+        <span class="project-stars">★ 1</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">guberm.github.io</div>
+        <div class="project-icon">🌐</div>
+      </div>
+      <div class="project-desc">Personal portfolio and developer profile site showcasing skills, public projects, and contact links.</div>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">Web / Portfolio</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#e34c26"></span>HTML</span>
+        <span>2026</span>
+      </div>
     </a>
+    <a class="project-card" href="https://github.com/guberm/canadafuel-privacy" target="_blank" rel="noopener" data-category="web-portfolio" data-search="canadafuel-privacy web &amp; portfolio public privacy-policy site for the canadafuel application, built as a lightweight static page. html html web / portfolio">
+      <div class="project-topline">
+        <span class="project-category">🌐 Web &amp; Portfolio</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">canadafuel-privacy</div>
+        <div class="project-icon">🌐</div>
+      </div>
+      <div class="project-desc">Public privacy-policy site for the CanadaFuel application, built as a lightweight static page.</div>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">Web / Portfolio</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#e34c26"></span>HTML</span>
+        <span>2026</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/staticweb" target="_blank" rel="noopener" data-category="web-portfolio" data-search="staticweb web &amp; portfolio early static web project kept as a public reference for simple github-hosted pages. other web / portfolio">
+      <div class="project-topline">
+        <span class="project-category">🌐 Web &amp; Portfolio</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">staticweb</div>
+        <div class="project-icon">🌐</div>
+      </div>
+      <div class="project-desc">Early static web project kept as a public reference for simple GitHub-hosted pages.</div>
+      <div class="project-tags">
+        <span class="tag">Web / Portfolio</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#8b949e"></span>Other</span>
+        <span>2020</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/Blum" target="_blank" rel="noopener" data-category="legacy-research" data-search="blum legacy / research cross-platform blum automation bot with multithreading, proxy support, and operational safeguards. python python legacy / research">
+      <div class="project-topline">
+        <span class="project-category">🗄️ Legacy / Research</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">Blum</div>
+        <div class="project-icon">🗄️</div>
+      </div>
+      <div class="project-desc">Cross-platform Blum automation bot with multithreading, proxy support, and operational safeguards.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Legacy / Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2024</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/Dotcoin" target="_blank" rel="noopener" data-category="legacy-research" data-search="dotcoin legacy / research cross-platform dotcoin automation bot with multithreading, proxy support, and anti-blocking controls. python python legacy / research">
+      <div class="project-topline">
+        <span class="project-category">🗄️ Legacy / Research</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">Dotcoin</div>
+        <div class="project-icon">🗄️</div>
+      </div>
+      <div class="project-desc">Cross-platform Dotcoin automation bot with multithreading, proxy support, and anti-blocking controls.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Legacy / Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <span>2024</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/tortoisegit" target="_blank" rel="noopener" data-category="legacy-research" data-search="tortoisegit legacy / research historical code google export of tortoisegit sources, retained as a public archive. c++ c++ legacy / research">
+      <div class="project-topline">
+        <span class="project-category">🗄️ Legacy / Research</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">tortoisegit</div>
+        <div class="project-icon">🐢</div>
+      </div>
+      <div class="project-desc">Historical Code Google export of TortoiseGit sources, retained as a public archive.</div>
+      <div class="project-tags">
+        <span class="tag">C++</span>
+        <span class="tag">Legacy / Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#f34b7d"></span>C++</span>
+        <span>2015</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/tortoisegit.pcre" target="_blank" rel="noopener" data-category="legacy-research" data-search="tortoisegit.pcre legacy / research legacy pcre-related code google export associated with tortoisegit archival sources. c c legacy / research">
+      <div class="project-topline">
+        <span class="project-category">🗄️ Legacy / Research</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">tortoisegit.pcre</div>
+        <div class="project-icon">🐢</div>
+      </div>
+      <div class="project-desc">Legacy PCRE-related Code Google export associated with TortoiseGit archival sources.</div>
+      <div class="project-tags">
+        <span class="tag">C</span>
+        <span class="tag">Legacy / Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#555555"></span>C</span>
+        <span>2015</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/tortoisegit.tgit" target="_blank" rel="noopener" data-category="legacy-research" data-search="tortoisegit.tgit legacy / research legacy code google export related to the tortoisegit ecosystem, preserved as historical source material. c c legacy / research">
+      <div class="project-topline">
+        <span class="project-category">🗄️ Legacy / Research</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">tortoisegit.tgit</div>
+        <div class="project-icon">🐢</div>
+      </div>
+      <div class="project-desc">Legacy Code Google export related to the TortoiseGit ecosystem, preserved as historical source material.</div>
+      <div class="project-tags">
+        <span class="tag">C</span>
+        <span class="tag">Legacy / Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#555555"></span>C</span>
+        <span>2015</span>
+      </div>
+    </a>
+    <a class="project-card" href="https://github.com/guberm/tortoisegit.version" target="_blank" rel="noopener" data-category="legacy-research" data-search="tortoisegit.version legacy / research historical version metadata export from the tortoisegit code google archive. other legacy / research">
+      <div class="project-topline">
+        <span class="project-category">🗄️ Legacy / Research</span>
+        <span class="project-stars">★ 0</span>
+      </div>
+      <div class="project-header">
+        <div class="project-name">tortoisegit.version</div>
+        <div class="project-icon">🐢</div>
+      </div>
+      <div class="project-desc">Historical version metadata export from the TortoiseGit Code Google archive.</div>
+      <div class="project-tags">
+        <span class="tag">Legacy / Research</span>
+      </div>
+      <div class="project-footer">
+        <span class="lang-label"><span class="lang-dot" style="background:#8b949e"></span>Other</span>
+        <span>2015</span>
+      </div>
+    </a>
+    </div>
+    <div class="project-empty" id="projectEmpty">No projects match this filter yet. Try another category or search term.</div>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a class="btn btn-outline" href="https://github.com/guberm?tab=repositories" target="_blank" rel="noopener">View all repositories on GitHub →</a>
+    </div>
   </div>
 </section>
 
@@ -710,6 +1622,32 @@
   }
   buildMail(document.getElementById('jsMail'));
   buildMail(document.getElementById('jsMailContact'));
+
+
+  // Project filters and search
+  const projectCards = Array.from(document.querySelectorAll('.project-card'));
+  const projectFilters = Array.from(document.querySelectorAll('.project-filter'));
+  const projectSearch = document.getElementById('projectSearch');
+  const projectCounter = document.getElementById('projectCounter');
+  const projectEmpty = document.getElementById('projectEmpty');
+  let activeProjectFilter = 'all';
+  function applyProjectFilters() {
+    const query = (projectSearch?.value || '').trim().toLowerCase();
+    let visible = 0;
+    projectCards.forEach(card => {
+      const show = (activeProjectFilter === 'all' || card.dataset.category === activeProjectFilter) && (!query || (card.dataset.search || '').includes(query));
+      card.classList.toggle('hidden', !show);
+      if (show) visible += 1;
+    });
+    if (projectCounter) projectCounter.textContent = visible;
+    if (projectEmpty) projectEmpty.classList.toggle('visible', visible === 0);
+  }
+  projectFilters.forEach(button => button.addEventListener('click', () => {
+    activeProjectFilter = button.dataset.filter;
+    projectFilters.forEach(item => { const active = item === button; item.classList.toggle('active', active); item.setAttribute('aria-pressed', active ? 'true' : 'false'); });
+    applyProjectFilters();
+  }));
+  if (projectSearch) projectSearch.addEventListener('input', applyProjectFilters);
 
   // Theme toggle
   const btn = document.getElementById('themeToggle');
