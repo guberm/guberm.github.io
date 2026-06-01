@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YTSubsCore - Private YouTube Subscription Notifier</title>
+  <meta name="description" content="YTSubsCore is Michael Guber's private internal YouTube subscription notification tool.">
+  <style>
+    :root { --bg:#0d1117; --surface:#161b22; --surface2:#21262d; --border:#30363d; --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --red:#ff0033; --green:#3fb950; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; line-height:1.6; }
+    header, main, footer { max-width:1040px; margin:0 auto; padding:24px; }
+    header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
+    a { color:var(--accent); }
+    nav a { margin-left:16px; text-decoration:none; font-weight:600; }
+    .brand { display:flex; align-items:center; gap:14px; }
+    .yt { background:var(--red); color:white; border-radius:14px; padding:10px 14px; font-weight:800; letter-spacing:.04em; box-shadow:0 10px 30px rgba(255,0,51,.22); }
+    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:24px; margin-top:32px; align-items:stretch; }
+    .card { background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); border:1px solid var(--border); border-radius:18px; padding:24px; }
+    h1 { font-size:42px; line-height:1.08; margin:0 0 16px; letter-spacing:-.04em; }
+    h2 { margin-top:0; }
+    .muted { color:var(--muted); }
+    .pill { display:inline-block; border:1px solid var(--border); border-radius:999px; padding:6px 10px; margin:4px 6px 4px 0; background:var(--surface2); font-size:14px; }
+    .status { color:var(--green); font-weight:700; }
+    .links { margin-top:20px; display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); color:var(--text); text-decoration:none; padding:10px 14px; border-radius:12px; background:rgba(88,166,255,.12); font-weight:700; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:20px; }
+    footer { border-top:1px solid var(--border); color:var(--muted); font-size:14px; }
+    @media (max-width: 760px) { .hero,.grid { grid-template-columns:1fr; } header { display:block; } nav a { margin:8px 12px 0 0; display:inline-block; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="yt">YT</div><div><strong>YTSubsCore</strong><div class="muted">Private YouTube subscription notification tool</div></div></div>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" rel="noopener" target="_blank">YouTube API Terms</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="card">
+      <p class="status">Internal personal tool - not offered to external users</p>
+      <h1>YTSubsCore watches Michael Guber's own YouTube subscriptions and sends private email notifications.</h1>
+      <p>YTSubsCore uses the YouTube Data API with read-only OAuth authorization to list subscribed channels, check recent channel activity, fetch video metadata/duration, and send email notifications for newly published videos.</p>
+      <p>The application does not upload videos, modify YouTube data, post comments, rate videos, sell analytics, display ads, or provide a public user-facing product.</p>
+      <div class="links">
+        <a class="btn" href="privacy.html">Privacy Policy</a>
+        <a class="btn" href="terms.html">Terms of Service</a>
+        <a class="btn" href="https://myaccount.google.com/permissions" rel="noopener" target="_blank">Revoke Google access</a>
+      </div>
+    </div>
+    <div class="card">
+      <h2>YouTube API use</h2>
+      <span class="pill">Scope: youtube.readonly</span>
+      <span class="pill">subscriptions.list</span>
+      <span class="pill">activities.list</span>
+      <span class="pill">videos.list</span>
+      <span class="pill">SQLite local storage</span>
+      <span class="pill">Private email notifications</span>
+      <p class="muted">Google user data can be deleted by deleting the local SQLite database and OAuth token store. Access can be revoked at any time from the Google Account permissions page.</p>
+    </div>
+  </section>
+  <section class="grid">
+    <div class="card"><h2>Privacy link location</h2><p>The Privacy Policy link is visible in the top navigation and the primary action area above, next to the YTSubsCore YouTube-related branding.</p></div>
+    <div class="card"><h2>Contact</h2><p>Operator: Michael Guber<br>Email: <a href="mailto:michael@guber.dev">michael@guber.dev</a><br>Website: <a href="https://guber.dev">https://guber.dev</a></p></div>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Michael Guber. YTSubsCore is an independent private tool and is not affiliated with or endorsed by YouTube or Google. YouTube is a trademark of Google LLC.</p>
+</footer>
+</body>
+</html>
