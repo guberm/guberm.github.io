@@ -11,6 +11,12 @@
   <meta property="og:title" content="Michael Guber | .NET & Python Developer">
   <meta property="og:description" content=".NET/Python developer from Canada building automation, trading bots, AI integrations, and more.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://guberm.github.io/assets/guber-dev-logo.webp">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <style>
     :root {
       --bg: #0d1117;
@@ -76,14 +82,28 @@
     }
 
     .logo {
-      font-weight: 600;
-      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
       color: var(--text);
       text-decoration: none;
       letter-spacing: -0.02em;
     }
 
-    .logo span { color: var(--accent); }
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .logo-text span { color: var(--accent); }
 
     nav { display: flex; align-items: center; gap: 1.5rem; }
 
@@ -347,8 +367,23 @@
 
     /* ---- RESPONSIVE ---- */
     @media (max-width: 640px) {
+      header { padding: 0 1rem; }
+      nav { gap: 0.8rem; }
       nav a:not(.theme-btn-wrap a) { display: none; }
-      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .logo { gap: 0.5rem; }
+      .logo-mark { width: 26px; height: 26px; }
+      .logo-text { font-size: 0.92rem; }
+      .hero { padding: 2.6rem 1.25rem 2.5rem; }
+      .hero-brand { margin-bottom: 1rem; }
+      .hero-brand img { width: min(100%, 360px); border-radius: 14px; }
+      .hero-sub { font-size: 1rem; }
+      .hero-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+      }
+      .hero-links .btn-primary { grid-column: 1 / -1; }
+      .hero-links .btn { width: 100%; justify-content: center; }
       .section { padding: 3rem 1.25rem; }
       .projects-intro, .project-controls { grid-template-columns: 1fr; }
       .projects-stat { text-align: left; }
@@ -361,7 +396,10 @@
 
 <!-- HEADER -->
 <header>
-  <a class="logo" href="#">&lt;<span>guberm</span> /&gt;</a>
+  <a class="logo" href="#" aria-label="guber.dev home">
+    <img class="logo-mark" src="assets/guber-dev-mark-64.png" alt="">
+    <span class="logo-text">guber<span>.dev</span></span>
+  </a>
   <nav>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
