@@ -153,6 +153,15 @@
       background: #0a1020;
     }
 
+    .hero-brand .hero-logo-light { display: none; }
+
+    [data-theme="light"] .hero-brand .hero-logo-dark { display: none; }
+    [data-theme="light"] .hero-brand .hero-logo-light {
+      display: block;
+      background: #ffffff;
+      box-shadow: 0 18px 42px rgba(31,35,40,0.12);
+    }
+
     .hero-badge {
       display: inline-block;
       background: var(--gradient);
@@ -411,7 +420,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-brand">
-    <img src="assets/guber-dev-logo.webp" alt="guber.dev logo">
+    <img class="hero-logo hero-logo-dark" src="assets/guber-dev-logo.webp" alt="guber.dev logo">
+    <img class="hero-logo hero-logo-light" src="assets/guber-dev-logo-light.webp" alt="guber.dev logo">
   </div>
   <div class="hero-badge">Available for work</div>
   <h1>Hi, I'm <span class="name-highlight">Michael Guber</span></h1>
