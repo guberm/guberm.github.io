@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscription Notifier - Private Subscription Email Tool</title>
+  <meta name="description" content="Subscription Notifier is Michael Guber's private internal subscription notification tool.">
+  <style>
+  body { margin:0; background:#0d1117; color:#e6edf3; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; line-height:1.65; }
+  main, header, footer { max-width:1040px; margin:0 auto; padding:24px; }
+  header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #30363d; gap:20px; }
+  footer { border-top:1px solid #30363d; color:#8b949e; font-size:14px; }
+  a { color:#58a6ff; } nav a { margin-left:16px; text-decoration:none; font-weight:600; }
+  h1 { font-size:42px; line-height:1.08; margin:0 0 16px; letter-spacing:-.04em; } h2 { margin-top:0; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .mark { background:#238636; color:white; border-radius:14px; padding:10px 14px; font-weight:800; letter-spacing:.04em; box-shadow:0 10px 30px rgba(35,134,54,.22); }
+  .muted { color:#8b949e; } .status { color:#3fb950; font-weight:700; }
+  .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:24px; margin-top:32px; align-items:stretch; }
+  .card { background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); border:1px solid #30363d; border-radius:18px; padding:24px; }
+  .pill { display:inline-block; border:1px solid #30363d; border-radius:999px; padding:6px 10px; margin:4px 6px 4px 0; background:#21262d; font-size:14px; }
+  .links { margin-top:20px; display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { display:inline-flex; align-items:center; gap:8px; border:1px solid #58a6ff; color:#e6edf3; text-decoration:none; padding:10px 14px; border-radius:12px; background:rgba(88,166,255,.12); font-weight:700; }
+  .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:20px; }
+  .box { border:1px solid #30363d; background:#161b22; border-radius:14px; padding:18px; margin:18px 0; }
+  li { margin:8px 0; }
+  @media (max-width: 760px) { .hero,.grid { grid-template-columns:1fr; } header { display:block; } nav a { margin:8px 12px 0 0; display:inline-block; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="mark">SN</div><div><strong>Subscription Notifier</strong><div class="muted">Private subscription notification tool</div></div></div>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" rel="noopener" target="_blank">API Terms</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="card">
+      <p class="status">Internal personal tool - not offered to external users</p>
+      <h1>Subscription Notifier watches Michael Guber's own subscriptions and sends private email notifications.</h1>
+      <p>The application uses the YouTube Data API with read-only OAuth authorization to list subscribed channels, check recent channel activity, fetch video metadata/duration, and send email notifications for newly published videos.</p>
+      <p>The application does not upload videos, modify platform data, post comments, rate videos, sell analytics, display ads, or provide a public user-facing product.</p>
+      <div class="links">
+        <a class="btn" href="privacy.html">Privacy Policy</a>
+        <a class="btn" href="terms.html">Terms of Service</a>
+        <a class="btn" href="https://myaccount.google.com/permissions" rel="noopener" target="_blank">Revoke Google access</a>
+      </div>
+    </div>
+    <div class="card">
+      <h2>API use</h2>
+      <span class="pill">Scope: youtube.readonly</span>
+      <span class="pill">subscriptions.list</span>
+      <span class="pill">activities.list</span>
+      <span class="pill">videos.list</span>
+      <span class="pill">SQLite local storage</span>
+      <span class="pill">Private email notifications</span>
+      <p class="muted">The application refreshes data every 10 minutes while running, processes only recent activity, and purges stored video notification metadata older than 30 days. Access can be revoked at any time from the Google Account permissions page.</p>
+    </div>
+  </section>
+  <section class="grid">
+    <div class="card"><h2>Data retention</h2><p>Stored video notification rows and stale latest-video pointers are deleted after 30 days. Subscription channel IDs/titles are retained only while the private notification service is active for the operator's account.</p></div>
+    <div class="card"><h2>Contact</h2><p>Operator: Michael Guber<br>Email: <a href="mailto:michael@guber.dev">michael@guber.dev</a><br>Website: <a href="https://guber.dev">https://guber.dev</a></p></div>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Michael Guber. Subscription Notifier is an independent private tool and is not affiliated with or endorsed by Google LLC.</p>
+</footer>
+</body>
+</html>
