@@ -294,6 +294,75 @@
       flex-shrink: 0;
     }
 
+    /* ---- PUBLISHED APPS ---- */
+    #apps { scroll-margin-top: 72px; }
+
+    .apps-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.25rem;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(66, 133, 244, 0.16), transparent 30%),
+        radial-gradient(circle at 92% 12%, rgba(52, 168, 83, 0.12), transparent 28%),
+        var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .apps-intro { max-width: 720px; margin-bottom: 1.25rem; }
+    .apps-kicker { display: inline-flex; color: var(--accent); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
+    .apps-heading { font-size: clamp(1.65rem, 4vw, 2.4rem); line-height: 1.05; letter-spacing: -0.045em; margin-bottom: 0.55rem; }
+    .apps-copy { color: var(--text-muted); font-size: 0.96rem; }
+    .apps-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-width: 0;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--surface2) 72%, transparent);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+    }
+    .app-card:hover,
+    .app-card:focus-visible { transform: translateY(-2px); border-color: var(--accent); background: var(--surface2); }
+    .app-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .app-card-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: linear-gradient(135deg, rgba(52, 168, 83, 0.14), rgba(66, 133, 244, 0.1)), var(--surface2);
+    }
+    .app-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+    }
+    .app-mark-chrome { width: 36px; height: 36px; flex-basis: 36px; border-radius: 50%; background: conic-gradient(#ea4335 0 33%, #fbbc05 0 66%, #34a853 0); position: relative; }
+    .app-mark-chrome::after { content: ""; width: 14px; height: 14px; border: 3px solid #fff; border-radius: 50%; background: #4285f4; }
+    .app-card-top { display: flex; align-items: center; gap: 0.75rem; }
+    .app-card-body { min-width: 0; }
+    .app-badge { display: inline-flex; align-items: center; width: fit-content; padding: 0.18rem 0.5rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); background: var(--bg); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+    .app-title { margin: 0.25rem 0 0.2rem; font-size: 1rem; line-height: 1.25; letter-spacing: -0.015em; }
+    .app-card-featured .app-title { font-size: 1.25rem; }
+    .app-desc { color: var(--text-muted); font-size: 0.84rem; line-height: 1.55; }
+    .app-cta { align-self: end; color: var(--accent); font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+
     /* ---- PROJECTS ---- */
     .projects-shell { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 18px; padding: 1.25rem; background: radial-gradient(circle at 20% 0%, rgba(88,166,255,0.16), transparent 32%), radial-gradient(circle at 80% 20%, rgba(63,185,80,0.12), transparent 30%), var(--surface); box-shadow: var(--shadow); }
     .projects-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: end; margin-bottom: 1.25rem; }
@@ -384,6 +453,10 @@
       .logo-text { font-size: 0.92rem; }
       .hero { padding: 2.6rem 1.25rem 2.5rem; }
       .hero-brand { margin-bottom: 1rem; }
+      .apps-grid { grid-template-columns: 1fr; }
+      .app-card-featured { grid-column: auto; grid-template-columns: auto minmax(0, 1fr); }
+      .app-card-featured .app-cta { grid-column: 2; justify-self: start; }
+      .apps-shell { padding: 1rem; }
       .hero-brand img { width: min(100%, 360px); border-radius: 14px; }
       .hero-sub { font-size: 1rem; }
       .hero-links {
@@ -399,6 +472,11 @@
       .project-filters { justify-content: flex-start; }
       .projects-grid { grid-template-columns: 1fr; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .app-card { transition: none; }
+      .app-card:hover, .app-card:focus-visible { transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -411,6 +489,7 @@
   </a>
   <nav>
     <a href="#skills">Skills</a>
+    <a href="#apps">Apps</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     <button class="theme-btn" id="themeToggle" title="Toggle theme">☀ Light</button>
@@ -470,6 +549,78 @@
     <span class="skill-tag"><span class="skill-dot" style="background:#EA4335"></span>Gmail API</span>
     <span class="skill-tag"><span class="skill-dot" style="background:#FF6F00"></span>AI / LLM APIs</span>
     <span class="skill-tag"><span class="skill-dot" style="background:#4285F4"></span>Chrome Extensions</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PUBLISHED APPS -->
+<section class="section" id="apps">
+  <div class="apps-shell">
+    <div class="apps-intro">
+      <div class="apps-kicker">Published products</div>
+      <h2 class="apps-heading">Apps &amp; Extensions</h2>
+      <p class="apps-copy">Useful tools available directly from Google Play and the Chrome Web Store.</p>
+    </div>
+    <div class="apps-grid">
+      <a class="app-card app-card-featured" href="https://play.google.com/store/apps/details?id=com.guberdev.canadafuel" target="_blank" rel="noopener" aria-label="Canada Fuel on Google Play (opens in a new tab)">
+        <span class="app-mark" aria-hidden="true">CF</span>
+        <span class="app-card-body">
+          <span class="app-badge">Google Play</span>
+          <h3 class="app-title">Canada Fuel</h3>
+          <span class="app-desc">Track gas prices across Canadian cities with alerts and fuel forecasts.</span>
+        </span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/facebook-messenger-chat-e/bgecemhbllcmiggkolcialnelflpgaek" target="_blank" rel="noopener" aria-label="Facebook Messenger Chat Export on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Facebook Messenger Chat Export</h3><span class="app-desc">Export Messenger chat history to JSON, plain text, or self-contained HTML with images.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/whatsapp-web-chat-export/odooolgjhnpmpdhgpinofbmkpgbnjnfh" target="_blank" rel="noopener" aria-label="WhatsApp Web Chat Export on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">WhatsApp Web Chat Export</h3><span class="app-desc">Export WhatsApp Web conversations to JSON, plain text, or HTML.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/gmail-regex-rules-manager/bjjbpdcebmkfefbcibnioockcodheogh" target="_blank" rel="noopener" aria-label="Gmail Regex Rules Manager on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Gmail Regex Rules Manager</h3><span class="app-desc">Automatically manage Gmail messages with regex-based rules for labels and actions.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/gmail-share-page/hakgaankkmbjbncdjnjmlkbhmdomjfdl" target="_blank" rel="noopener" aria-label="Gmail Share Page on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Gmail Share Page</h3><span class="app-desc">Share pages via Gmail with multiple recipients selected from a dropdown list.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/dynamic-ad-remover/jifknddiiocgnehibmfhandejgkflkjc" target="_blank" rel="noopener" aria-label="Dynamic Ad Remover on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Dynamic Ad Remover</h3><span class="app-desc">Remove page elements by CSS or XPath selectors, with optional domain exclusions.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/chromeaiagent/faaanahikgkfpecahodibkoehicliafn" target="_blank" rel="noopener" aria-label="ChromeAiAgent on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">ChromeAiAgent</h3><span class="app-desc">An AI assistant for browser automation and web page interaction using natural-language commands.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/gmail-regex-search/bkmofaominpmgppkcaooekegadeamcgm" target="_blank" rel="noopener" aria-label="Gmail Regex Search on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Gmail Regex Search</h3><span class="app-desc">Use regular expressions to filter visible emails or search an entire inbox via the Gmail API.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/universal-article-to-gmai/hkeohfokhljhfbmaejmlbdfkiddlledm" target="_blank" rel="noopener" aria-label="Universal Article to Gmail on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Universal Article to Gmail</h3><span class="app-desc">Copy articles or selected page content with formatting, then insert it into Gmail.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2090,6 +2241,10 @@
     </a>
     <a class="social-link" href="https://releasebar.guber.dev/guberm" target="_blank" rel="noopener">
       📦 ReleaseBar
+    </a>
+    <a class="social-link" href="https://t.me/guberm" target="_blank" rel="noopener" aria-label="Telegram: @guberm (opens in a new tab)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.944 2.506a1.5 1.5 0 0 0-1.52-.229L2.59 9.15c-1.218.47-1.21 1.174-.223 1.477l4.578 1.43 1.77 5.365c.215.596.109.833.733.833.482 0 .695-.22.963-.482l2.198-2.137 4.572 3.377c.843.465 1.45.224 1.66-.782l2.835-13.36c.29-1.165-.445-1.694-1.202-1.35L7.405 11.52c-.903.362-.892-.175-.154-.638l11.927-7.493c.552-.335 1.058-.154.642.216L9.963 12.5l-.384 4.065 1.477-1.477 7.698-7.067c.355-.316.68-.146.413.091l-6.353 5.73 5.314 3.924 2.685-12.65c.2-.9-.22-1.3-.869-.61Z"/></svg>
+      Telegram <span aria-hidden="true">·</span> @guberm
     </a>
     <a class="social-link" href="https://www.linkedin.com/in/guberm/" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
