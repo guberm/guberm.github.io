@@ -295,7 +295,7 @@
     }
 
     /* ---- PUBLISHED APPS ---- */
-    #apps { scroll-margin-top: 72px; }
+    #apps, #contact { scroll-margin-top: 72px; }
 
     .apps-shell {
       position: relative;
@@ -339,22 +339,15 @@
       padding: 1.2rem;
       background: linear-gradient(135deg, rgba(52, 168, 83, 0.14), rgba(66, 133, 244, 0.1)), var(--surface2);
     }
-    .app-mark {
-      display: inline-grid;
-      place-items: center;
+    .app-icon {
+      display: block;
       width: 42px;
       height: 42px;
       flex: 0 0 42px;
       border-radius: 11px;
-      color: #fff;
-      background: linear-gradient(135deg, #4285f4, #34a853);
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      object-fit: cover;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
     }
-    .app-mark-chrome { width: 36px; height: 36px; flex-basis: 36px; border-radius: 50%; background: conic-gradient(#ea4335 0 33%, #fbbc05 0 66%, #34a853 0); position: relative; }
-    .app-mark-chrome::after { content: ""; width: 14px; height: 14px; border: 3px solid #fff; border-radius: 50%; background: #4285f4; }
     .app-card-top { display: flex; align-items: center; gap: 0.75rem; }
     .app-card-body { min-width: 0; }
     .app-badge { display: inline-flex; align-items: center; width: fit-content; padding: 0.18rem 0.5rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); background: var(--bg); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
@@ -524,6 +517,41 @@
   </div>
 </section>
 
+<!-- CONTACT -->
+<section class="section" id="contact" style="text-align:center;">
+  <div class="section-title">Let's connect</div>
+  <div class="section-sub" style="margin-bottom:1.5rem;">Find me across the internet as <strong>@guberm</strong></div>
+  <div class="socials">
+    <a class="social-link" href="https://github.com/guberm" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+    <a class="social-link" href="https://releasebar.guber.dev/guberm" target="_blank" rel="noopener">
+      📦 ReleaseBar
+    </a>
+    <a class="social-link" href="https://t.me/guberm" target="_blank" rel="noopener" aria-label="Telegram: @guberm (opens in a new tab)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.944 2.506a1.5 1.5 0 0 0-1.52-.229L2.59 9.15c-1.218.47-1.21 1.174-.223 1.477l4.578 1.43 1.77 5.365c.215.596.109.833.733.833.482 0 .695-.22.963-.482l2.198-2.137 4.572 3.377c.843.465 1.45.224 1.66-.782l2.835-13.36c.29-1.165-.445-1.694-1.202-1.35L7.405 11.52c-.903.362-.892-.175-.154-.638l11.927-7.493c.552-.335 1.058-.154.642.216L9.963 12.5l-.384 4.065 1.477-1.477 7.698-7.067c.355-.316.68-.146.413.091l-6.353 5.73 5.314 3.924 2.685-12.65c.2-.9-.22-1.3-.869-.61Z"/></svg>
+      Telegram <span aria-hidden="true">·</span> @guberm
+    </a>
+    <a class="social-link" href="https://www.linkedin.com/in/guberm/" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a class="social-link" href="https://twitter.com/guberm" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Twitter / X
+    </a>
+    <a class="social-link" href="https://www.dev.to/guberm" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.73-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"/></svg>
+      Dev.to
+    </a>
+    <a class="social-link" href="#" id="jsMailContact" data-local="michael" data-plus="" data-domain="guber" data-tld=".dev">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
+      Email
+    </a>
+  </div>
+</section>
+
 <hr class="divider">
 
 <!-- SKILLS -->
@@ -564,7 +592,7 @@
     </div>
     <div class="apps-grid">
       <a class="app-card app-card-featured" href="https://play.google.com/store/apps/details?id=com.guberdev.canadafuel" target="_blank" rel="noopener" aria-label="Canada Fuel on Google Play (opens in a new tab)">
-        <span class="app-mark" aria-hidden="true">CF</span>
+        <img class="app-icon" src="assets/store-icons/canada-fuel.jpg" alt="" width="512" height="512" decoding="async">
         <span class="app-card-body">
           <span class="app-badge">Google Play</span>
           <h3 class="app-title">Canada Fuel</h3>
@@ -574,49 +602,49 @@
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/facebook-messenger-chat-e/bgecemhbllcmiggkolcialnelflpgaek" target="_blank" rel="noopener" aria-label="Facebook Messenger Chat Export on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/facebook-messenger-chat-export.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">Facebook Messenger Chat Export</h3><span class="app-desc">Export Messenger chat history to JSON, plain text, or self-contained HTML with images.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/whatsapp-web-chat-export/odooolgjhnpmpdhgpinofbmkpgbnjnfh" target="_blank" rel="noopener" aria-label="WhatsApp Web Chat Export on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/whatsapp-web-chat-export.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">WhatsApp Web Chat Export</h3><span class="app-desc">Export WhatsApp Web conversations to JSON, plain text, or HTML.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/gmail-regex-rules-manager/bjjbpdcebmkfefbcibnioockcodheogh" target="_blank" rel="noopener" aria-label="Gmail Regex Rules Manager on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/gmail-regex-rules-manager.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">Gmail Regex Rules Manager</h3><span class="app-desc">Automatically manage Gmail messages with regex-based rules for labels and actions.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/gmail-share-page/hakgaankkmbjbncdjnjmlkbhmdomjfdl" target="_blank" rel="noopener" aria-label="Gmail Share Page on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/gmail-share-page.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">Gmail Share Page</h3><span class="app-desc">Share pages via Gmail with multiple recipients selected from a dropdown list.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/dynamic-ad-remover/jifknddiiocgnehibmfhandejgkflkjc" target="_blank" rel="noopener" aria-label="Dynamic Ad Remover on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/dynamic-ad-remover.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">Dynamic Ad Remover</h3><span class="app-desc">Remove page elements by CSS or XPath selectors, with optional domain exclusions.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/chromeaiagent/faaanahikgkfpecahodibkoehicliafn" target="_blank" rel="noopener" aria-label="ChromeAiAgent on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/chromeaiagent.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">ChromeAiAgent</h3><span class="app-desc">An AI assistant for browser automation and web page interaction using natural-language commands.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/gmail-regex-search/bkmofaominpmgppkcaooekegadeamcgm" target="_blank" rel="noopener" aria-label="Gmail Regex Search on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/gmail-regex-search.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">Gmail Regex Search</h3><span class="app-desc">Use regular expressions to filter visible emails or search an entire inbox via the Gmail API.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
 
       <a class="app-card" href="https://chromewebstore.google.com/detail/universal-article-to-gmai/hkeohfokhljhfbmaejmlbdfkiddlledm" target="_blank" rel="noopener" aria-label="Universal Article to Gmail on the Chrome Web Store (opens in a new tab)">
-        <span class="app-card-top"><span class="app-mark app-mark-chrome" aria-hidden="true"></span><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/universal-article-to-gmail.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
         <span class="app-card-body"><h3 class="app-title">Universal Article to Gmail</h3><span class="app-desc">Copy articles or selected page content with formatting, then insert it into Gmail.</span></span>
         <span class="app-cta">View extension →</span>
       </a>
@@ -2229,41 +2257,6 @@
 </section>
 
 <hr class="divider">
-
-<!-- CONTACT -->
-<section class="section" id="contact" style="text-align:center;">
-  <div class="section-title">Let's connect</div>
-  <div class="section-sub" style="margin-bottom:1.5rem;">Find me across the internet as <strong>@guberm</strong></div>
-  <div class="socials">
-    <a class="social-link" href="https://github.com/guberm" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-      GitHub
-    </a>
-    <a class="social-link" href="https://releasebar.guber.dev/guberm" target="_blank" rel="noopener">
-      📦 ReleaseBar
-    </a>
-    <a class="social-link" href="https://t.me/guberm" target="_blank" rel="noopener" aria-label="Telegram: @guberm (opens in a new tab)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.944 2.506a1.5 1.5 0 0 0-1.52-.229L2.59 9.15c-1.218.47-1.21 1.174-.223 1.477l4.578 1.43 1.77 5.365c.215.596.109.833.733.833.482 0 .695-.22.963-.482l2.198-2.137 4.572 3.377c.843.465 1.45.224 1.66-.782l2.835-13.36c.29-1.165-.445-1.694-1.202-1.35L7.405 11.52c-.903.362-.892-.175-.154-.638l11.927-7.493c.552-.335 1.058-.154.642.216L9.963 12.5l-.384 4.065 1.477-1.477 7.698-7.067c.355-.316.68-.146.413.091l-6.353 5.73 5.314 3.924 2.685-12.65c.2-.9-.22-1.3-.869-.61Z"/></svg>
-      Telegram <span aria-hidden="true">·</span> @guberm
-    </a>
-    <a class="social-link" href="https://www.linkedin.com/in/guberm/" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn
-    </a>
-    <a class="social-link" href="https://twitter.com/guberm" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      Twitter / X
-    </a>
-    <a class="social-link" href="https://www.dev.to/guberm" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.73-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"/></svg>
-      Dev.to
-    </a>
-    <a class="social-link" href="#" id="jsMailContact" data-local="michael" data-plus="" data-domain="guber" data-tld=".dev">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
-      Email
-    </a>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
