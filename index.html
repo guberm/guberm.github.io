@@ -523,54 +523,7 @@
   <p class="hero-sub">
     I’m Michael Guber, a Canada-based software developer and consultant. I turn complex workflows into reliable products — enterprise web systems, AI automation, Android apps, browser extensions, bots, and integrations.
   </p>
-  <div class="hero-links">
-    <a class="btn btn-primary" href="https://github.com/guberm" target="_blank" rel="noopener">
-      ⭐ GitHub Profile
-    </a>
-    <a class="btn btn-outline" href="https://releasebar.guber.dev/guberm" target="_blank" rel="noopener">
-      📦 ReleaseBar
-    </a>
-    <a class="btn btn-outline" href="https://www.linkedin.com/in/guberm/" target="_blank" rel="noopener">
-      LinkedIn
-    </a>
-    <a class="btn btn-outline" href="#" id="jsMail" data-local="michael" data-plus="" data-domain="guber" data-tld=".dev">
-      Email me
-    </a>
-  </div>
 </section>
-
-<hr class="divider">
-
-<!-- WHAT I BUILD -->
-<section class="section" id="what-i-build">
-  <div class="section-title">What I build</div>
-  <div class="section-sub">Practical software shaped around the way people and businesses actually work.</div>
-  <div class="build-grid">
-    <article class="build-item">
-      <h3>Business software</h3>
-      <p>Reliable enterprise web systems, internal platforms, and data-driven workflows.</p>
-    </article>
-    <article class="build-item">
-      <h3>AI &amp; automation</h3>
-      <p>AI-assisted processes, browser automation, bots, and system integrations.</p>
-    </article>
-    <article class="build-item">
-      <h3>Apps &amp; extensions</h3>
-      <p>Native Android apps in Java and Kotlin, Flutter apps, Chrome extensions, and Telegram and Gmail tools.</p>
-    </article>
-    <article class="build-item">
-      <h3>Custom tools</h3>
-      <p>Focused utilities and self-hosted solutions for specialized operational needs.</p>
-    </article>
-  </div>
-  <p class="build-proof">Production business systems, a published Google Play app, multiple Chrome Web Store extensions, self-hosted tools, and open-source projects.</p>
-  <div class="build-cta">
-    <p>Have a workflow that should be simpler, faster, or automated? Let’s talk.</p>
-    <a class="btn btn-primary" href="#contact">Get in touch</a>
-  </div>
-</section>
-
-<hr class="divider">
 
 <!-- CONTACT -->
 <section class="section" id="contact" style="text-align:center;">
@@ -610,6 +563,38 @@
     </a>
   </div>
 </section>
+
+<hr class="divider">
+
+<!-- WHAT I BUILD -->
+<section class="section" id="what-i-build">
+  <div class="section-title">What I build</div>
+  <div class="section-sub">Practical software shaped around the way people and businesses actually work.</div>
+  <div class="build-grid">
+    <article class="build-item">
+      <h3>Business software</h3>
+      <p>Reliable enterprise web systems, internal platforms, and data-driven workflows.</p>
+    </article>
+    <article class="build-item">
+      <h3>AI &amp; automation</h3>
+      <p>AI-assisted processes, browser automation, bots, and system integrations.</p>
+    </article>
+    <article class="build-item">
+      <h3>Apps &amp; extensions</h3>
+      <p>Native Android apps in Java and Kotlin, Flutter apps, Chrome extensions, and Telegram and Gmail tools.</p>
+    </article>
+    <article class="build-item">
+      <h3>Custom tools</h3>
+      <p>Focused utilities and self-hosted solutions for specialized operational needs.</p>
+    </article>
+  </div>
+  <p class="build-proof">Production business systems, a published Google Play app, multiple Chrome Web Store extensions, self-hosted tools, and open-source projects.</p>
+  <div class="build-cta">
+    <p>Have a workflow that should be simpler, faster, or automated? Let’s talk.</p>
+    <a class="btn btn-primary" href="#contact">Get in touch</a>
+  </div>
+</section>
+
 
 <hr class="divider">
 
@@ -2228,7 +2213,6 @@
     const m = [el.dataset.local + el.dataset.plus, el.dataset.domain + el.dataset.tld].join('@');
     el.setAttribute('href', 'mailto:' + m);
   }
-  buildMail(document.getElementById('jsMail'));
   buildMail(document.getElementById('jsMailContact'));
 
 
