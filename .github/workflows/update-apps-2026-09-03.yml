@@ -1,0 +1,120 @@
+name: Update published apps once
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-apps:
+    if: github.event.head_commit.message == 'chore: run one-time apps update'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update apps section
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_bytes().decode("utf-8")
+          nl = "\r\n" if "\r\n" in text else "\n"
+          start_marker = f'    <div class="apps-grid">{nl}'
+          end_marker = f'    </div>{nl}  </div>{nl}</section>{nl}{nl}<hr class="divider">{nl}{nl}<!-- PROJECTS -->'
+          start = text.index(start_marker)
+          end = text.index(end_marker, start)
+
+          grid = '''    <div class="apps-grid">
+      <a class="app-card app-card-featured" href="https://play.google.com/store/apps/details?id=com.guberdev.apkcloner" target="_blank" rel="noopener" aria-label="APK Cloner on Google Play (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/apk-cloner.jpg" alt="" width="128" height="128" loading="lazy" decoding="async"></span>
+        <span class="app-card-body"><span class="app-badge">Google Play</span><h3 class="app-title">APK Cloner</h3><span class="app-desc">Clone and manage installed APKs for testing, backup, and app experiments.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card app-card-featured" href="https://play.google.com/store/apps/details?id=com.guberdev.autostartmanager" target="_blank" rel="noopener" aria-label="Auto Start Manager on Google Play (opens in a new tab)">
+        <img class="app-icon" src="https://play-lh.googleusercontent.com/b_GNK7J3SgegWmNNxwYQ7s3Z5MMDdQzjwLGPriU5V3bMyyuXWP33GiTX_Rvwy9X09gISgoydaKI2Z3Zca1u_EA=s0-br30" alt="" width="512" height="512" loading="lazy" decoding="async">
+        <span class="app-card-body"><span class="app-badge">Google Play</span><h3 class="app-title">Auto Start Manager</h3><span class="app-desc">Inspect and control Android boot receivers and running apps with Shizuku.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card app-card-featured" href="https://play.google.com/store/apps/details?id=com.guberdev.canadafuel" target="_blank" rel="noopener" aria-label="Canada Fuel on Google Play (opens in a new tab)">
+        <img class="app-icon" src="assets/store-icons/canada-fuel.jpg" alt="" width="512" height="512" decoding="async">
+        <span class="app-card-body"><span class="app-badge">Google Play</span><h3 class="app-title">Canada Fuel</h3><span class="app-desc">Track gas prices across Canadian cities with alerts and fuel forecasts.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card" href="https://play.google.com/store/apps/details?id=com.guberdev.cellularcallguard" target="_blank" rel="noopener" aria-label="Cellular Call Guard on Google Play (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="https://play-lh.googleusercontent.com/i0HzXoKpEh07rli5P3xCI97Tu0Kp6qE3nDvMak8rz7ShGd5o_SflYwj92cuKSyqQJa0XOuJULDJiPGFO_Pnu_Q=s0-br30" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Google Play</span></span>
+        <span class="app-card-body"><h3 class="app-title">Cellular Call Guard</h3><span class="app-desc">Block cellular voice calls per SIM while keeping mobile data and SMS active.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card" href="https://play.google.com/store/apps/details?id=com.guberdev.codexusage" target="_blank" rel="noopener" aria-label="Codex Usage Monitor on Google Play (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="https://play-lh.googleusercontent.com/XuVeqBR294hyjoTEpLqT8brj8x9QKCgiIaKnRkYfBDwC7IWibPYLPuJkcGAi6jJEI_ZtKBsLJO-FulEB10Sk8w=s0-br30" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Google Play</span></span>
+        <span class="app-card-body"><h3 class="app-title">Codex Usage Monitor</h3><span class="app-desc">Track remaining Codex usage, reset times, widgets, and alerts.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card" href="https://play.google.com/store/apps/details?id=com.guberdev.notificationsforwarder" target="_blank" rel="noopener" aria-label="Notifications Forwarder on Google Play (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="assets/store-icons/notifications-forwarder.png" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Google Play</span></span>
+        <span class="app-card-body"><h3 class="app-title">Notifications Forwarder</h3><span class="app-desc">Forward selected app notifications to Google Sheets and your Gmail.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card" href="https://play.google.com/store/apps/details?id=com.guberdev.gdrivebackup" target="_blank" rel="noopener" aria-label="Drive Backup on Google Play (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="https://raw.githubusercontent.com/guberm/Google-Drive-Backup-Flutter-Android/main/assets/app_icon.svg" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Google Play</span></span>
+        <span class="app-card-body"><h3 class="app-title">Drive Backup</h3><span class="app-desc">Incrementally back up a selected Android folder to an app-specific folder in Google Drive.</span></span>
+        <span class="app-cta">View on Google Play →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/telegram-custom-notifier/okllmmnkjliifdjkfofnebppigbcpapj" target="_blank" rel="noopener" aria-label="Telegram Custom Notifier on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="https://lh3.googleusercontent.com/hsGyqqBRoQftm4tKbyvCgKjTdN21RJnoQIJQl9NRREetVas0aHumzkqcAC7ud0jlp6ioLnn7mHsfcu5E5p7MAqZB=s128-rj-sc0x00ffffff" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Telegram Custom Notifier</h3><span class="app-desc">Shows filtered desktop notifications for selected chats from a locally connected Telegram account.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+
+      <a class="app-card" href="https://chromewebstore.google.com/detail/codex-usage/daofeladpdcpdkcfbhinapeonbmbjgmp" target="_blank" rel="noopener" aria-label="Codex Usage on the Chrome Web Store (opens in a new tab)">
+        <span class="app-card-top"><img class="app-icon" src="https://lh3.googleusercontent.com/ipgxLaKxqUqSvOjs_jrsq0z2gQ6QRPLwkRwGt7z-FxgnKMkhOoQOOLOszgE4mXgXk9eQTrE2ViJzqqffICawSmO2=s128-rj-sc0x00ffffff" alt="" width="128" height="128" loading="lazy" decoding="async"><span class="app-badge">Chrome Web Store</span></span>
+        <span class="app-card-body"><h3 class="app-title">Codex Usage</h3><span class="app-desc">Track Codex usage limits, reset times, and banked resets from the Chrome toolbar.</span></span>
+        <span class="app-cta">View extension →</span>
+      </a>
+    </div>'''.replace("\n", nl)
+
+          updated = text[:start] + grid + nl + text[end + len(f'    </div>{nl}'):]
+          section_start = updated.index('<section class="section" id="apps">')
+          section_end = updated.index('<!-- PROJECTS -->', section_start)
+          section = updated[section_start:section_end]
+
+          expected_urls = [
+              "https://play.google.com/store/apps/details?id=com.guberdev.apkcloner",
+              "https://play.google.com/store/apps/details?id=com.guberdev.autostartmanager",
+              "https://play.google.com/store/apps/details?id=com.guberdev.canadafuel",
+              "https://play.google.com/store/apps/details?id=com.guberdev.cellularcallguard",
+              "https://play.google.com/store/apps/details?id=com.guberdev.codexusage",
+              "https://play.google.com/store/apps/details?id=com.guberdev.notificationsforwarder",
+              "https://play.google.com/store/apps/details?id=com.guberdev.gdrivebackup",
+              "https://chromewebstore.google.com/detail/telegram-custom-notifier/okllmmnkjliifdjkfofnebppigbcpapj",
+              "https://chromewebstore.google.com/detail/codex-usage/daofeladpdcpdkcfbhinapeonbmbjgmp",
+          ]
+          assert all(section.count(url) == 1 for url in expected_urls)
+          assert section.count("https://play.google.com/store/apps/details?id=") == 7
+          assert section.count("https://chromewebstore.google.com/detail/") == 2
+          assert updated != text
+          path.write_bytes(updated.encode("utf-8"))
+
+      - name: Commit update and remove one-time workflow
+        shell: bash
+        run: |
+          rm .github/workflows/update-apps-2026-09-03.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/update-apps-2026-09-03.yml
+          git diff --cached --check
+          git commit -m "Update published apps"
+          git push origin HEAD:main
