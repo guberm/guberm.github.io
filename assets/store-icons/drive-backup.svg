@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#F5F5F5;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="256" cy="256" r="240" fill="url(#backgroundGradient)" />
+
+  <!-- Google Drive cloud icon -->
+  <g transform="translate(256, 200)">
+    <!-- Cloud shape -->
+    <path d="M-80,-40 C-100,-60 -80,-80 -50,-75 C-40,-90 -10,-90 0,-75 C20,-85 50,-70 60,-45 C80,-45 90,-25 80,-10 L-70,-10 C-85,-10 -90,-25 -80,-40 Z"
+          fill="url(#cloudGradient)" stroke="#E0E0E0" stroke-width="2"/>
+
+    <!-- Google Drive triangle logo inside cloud -->
+    <g transform="scale(0.3)">
+      <path d="M-40,20 L40,20 L0,-40 Z" fill="#4285F4"/>
+      <path d="M-40,20 L0,80 L40,20 Z" fill="#34A853"/>
+      <path d="M0,-40 L40,20 L80,-40 Z" fill="#EA4335"/>
+      <path d="M0,80 L40,20 L80,80 Z" fill="#FBBC04"/>
+    </g>
+  </g>
+
+  <!-- Backup/sync arrows -->
+  <g transform="translate(256, 320)">
+    <!-- Circular arrows indicating sync -->
+    <path d="M -30,-15 A 20 20 0 0 1 30,-15"
+          fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+    <path d="M 30,15 A 20 20 0 0 1 -30,15"
+          fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  </g>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FFFFFF"/>
+    </marker>
+  </defs>
+
+  <!-- Folder icon at bottom -->
+  <g transform="translate(256, 380)">
+    <rect x="-25" y="-10" width="50" height="30" rx="4" fill="#FFA726" opacity="0.9"/>
+    <rect x="-20" y="-15" width="15" height="8" rx="2" fill="#FFA726" opacity="0.9"/>
+  </g>
+
+  <!-- Small dots indicating files -->
+  <circle cx="180" cy="380" r="3" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="200" cy="375" r="3" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="220" cy="385" r="3" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="292" cy="375" r="3" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="312" cy="385" r="3" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="332" cy="380" r="3" fill="#FFFFFF" opacity="0.8"/>
+</svg>
