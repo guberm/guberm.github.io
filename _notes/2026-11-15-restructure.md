@@ -91,6 +91,12 @@ sms.guber.dev — post the same way:
   and SMTP (Reply-To = sender).
 - Email subject (and Telegram header) names the source service, derived from the posting
   origin: `New enquiry from <name> — <Service>` (e.g. `— Punchlist`, `— Investigation System`).
+- Embedded forms may optionally set hidden `_service` (cosmetic label override, ≤40 chars)
+  and `_next` (redirect URL, host must be allowlisted) — used by the VAS form on
+  `guber.dev/work/vas/`; honoured only when the posting origin is allowlisted.
+- Turnstile widget `guber.dev contact form` covers guber.dev, www, vas., sms., punchlist.
+  and investigation. subdomains (updated 2026-11-16 — before that, subdomain tokens
+  failed siteverify with HTTP 403).
 - Success → `303` back to the caller's own origin (`Referer` allowlist) with `?sent=1#contact`;
   each landing shows its thanks banner for `?sent=1` and cleans the URL.
 - Backend `ALLOWED_REDIRECT_HOSTS` (code default) lists the origins allowed to be bounced to.
