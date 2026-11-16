@@ -1,35 +1,35 @@
-Hi 👋 My name is Michael Guber
-==============================
+# guber.dev
 
-.NET/Python developer
----------------------
+Source of [guber.dev](https://guber.dev) — portfolio and consulting site of Michael Guber.
 
-* 🌍  I'm based in Canada
-* ✉️  You can contact me at [michael@guber.dev](mailto:michael@guber.dev)
+Plain HTML, CSS and a little JavaScript. No build step, no dependencies, no generator:
+the files in this repository *are* the site. Deploy = push to `main` (GitHub Pages).
 
-### Skills
+## Structure
 
-<p align="left">
-<a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/csharp-colored.svg" width="36" height="36" alt="C#" /></a>
-<a href="https://www.oracle.com/java/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" width="36" height="36" alt="Java" /></a>
-<a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" width="36" height="36" alt="Python" /></a>
-<a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg" width="36" height="36" alt="PostgreSQL" /></a>
-<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" width="36" height="36" alt="MySQL" /></a>
-<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg" width="36" height="36" alt="MongoDB" /></a>
-<a href="https://dotnet.microsoft.com/en-us/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/dot-net-colored.svg" width="36" height="36" alt=".NET" /></a>
-</p>
+| Path | What it is |
+|---|---|
+| `index.html` | Landing page: selected work (4 self-hosted products), apps published on the stores, what I do, how I work, stack, contact |
+| `projects/index.html` | All 67 public, non-fork GitHub repositories, with search, sort and category filters |
+| `work/<product>/index.html` | One page per self-hosted product: the problem, what it does, where it runs |
+| `assets/site.css` | Single stylesheet for every page |
+| `assets/site.js` | Theme toggle (dark/light, remembered in `localStorage`) |
+| `assets/store-icons/` | Product icons used by the cards and the product pages |
+| `subscription-notifier/`, `ytsubscore/` | Support, privacy and terms pages for the published apps |
+| `app-ads.txt`, `CNAME`, `robots.txt`, `sitemap.xml` | Domain and crawler plumbing |
+| `_notes/` | Working notes. Jekyll ignores folders starting with `_`, so this is never published |
 
+## Editing notes
 
-### Socials
-
-<p align="left"> <a href="https://www.dev.to/guberm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/devdotto.svg" width="32" height="32" /></a> <a href="https://discord.com/users/MichaelG" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" /></a> <a href="https://www.facebook.com/guberm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" width="32" height="32" /></a> <a href="https://www.github.com/guberm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="32" height="32" /></a> <a href="http://www.instagram.com/guberm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/instagram.svg" width="32" height="32" /></a> <a href="https://www.linkedin.com/in/guberm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/guberm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" /></a></p>
-
-### Badges
-
-<b>My GitHub Stats</b>
-
-<a href="http://www.github.com/guberm"><img src="https://github-readme-stats.vercel.app/api?username=guberm&show_icons=true&hide=contribs&count_private=true&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="guberm's GitHub stats" /></a>
-
-<a href="http://www.github.com/guberm"><img src="https://github-readme-streak-stats.herokuapp.com/?user=guberm&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
-
-<a href="http://www.github.com/guberm"><img src="https://activity-graph.herokuapp.com/graph?username=guberm&bg_color=1c1917&color=ffffff&line=0891b2&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph" alt="GitHub Commits Graph" /></a>
+- Every page must link the shared assets with **root-absolute** paths
+  (`/assets/site.css`, `/assets/site.js`) so pages work at any depth.
+- Internal links between pages are root-absolute too (`/projects/`, `/work/vas/`).
+- Product cards reuse the existing `.app-card` markup: the four self-hosted products use
+  `.app-card.app-card-featured` on the landing, the store apps use the compact
+  `.app-cards-compact` grid.
+- Adding a page? Add its URL to `sitemap.xml`.
+- `projects/index.html` is built from GitHub metadata. **New repositories go there, not on the
+  landing page** — the landing no longer holds the grid. Edit the `.project-card` blocks in place:
+  the filter/sort script reads the `data-*` attributes on each card, and the counts in the filter
+  buttons (plus `#projectCounter`) are maintained by hand. Check for a duplicate `data-name`
+  before adding — the sync once added a second card for a repository that was already listed.
