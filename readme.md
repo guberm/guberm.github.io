@@ -18,7 +18,7 @@ the files in this repository *are* the site. Deploy = push to `main` (GitHub Pag
 | `subscription-notifier/`, `ytsubscore/` | Support, privacy and terms pages for the published apps |
 | `app-ads.txt`, `CNAME`, `robots.txt`, `sitemap.xml` | Domain and crawler plumbing |
 | `_notes/` | Working notes. Jekyll ignores folders starting with `_`, so this is never published |
-| `form.guber.dev` (Hetzner VPS 2.29.155.27) | Contact-form backend: Caddy → `form-processor` systemd service (Python stdlib). Not part of this repo — see `_notes/2026-11-15-restructure.md` for the contract |
+| `form.guber.dev` (Hetzner VPS) | Contact-form backend: Caddy → `form-processor` systemd service (Python stdlib). Not part of this repo — see `_notes/2026-11-15-restructure.md` for the contract |
 
 ## Editing notes
 
