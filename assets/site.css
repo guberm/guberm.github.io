@@ -588,3 +588,53 @@ header { gap: 1rem; }
   .work-actions .app-cta { flex: none; }
   .hero-links { grid-template-columns: 1fr; }
 }
+
+/* ---- contact form ---- */
+.contact-form { max-width: 640px; margin: 0 auto; text-align: left; }
+.cf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; }
+.cf-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.85rem; }
+.cf-field label { color: var(--text-muted); font-size: 0.8rem; }
+.cf-field input, .cf-field textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bg) 58%, transparent);
+  color: var(--text);
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cf-field textarea { resize: vertical; min-height: 7.5rem; }
+.cf-field input:focus, .cf-field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+.cf-field input::placeholder, .cf-field textarea::placeholder { color: color-mix(in srgb, var(--text-muted) 72%, transparent); }
+.cf-actions { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
+.contact-form .btn { cursor: pointer; }
+.contact-form .btn[disabled] { opacity: 0.6; cursor: default; transform: none; }
+.cf-hint { color: var(--text-muted); font-size: 0.8rem; }
+.cf-sent {
+  margin-top: 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent2) 55%, var(--border));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent2) 12%, transparent);
+  font-size: 0.88rem;
+}
+.contact-alt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+.contact-alt .contact-email { margin-bottom: 0; font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+@media (max-width: 640px) {
+  .cf-grid { grid-template-columns: 1fr; }
+}

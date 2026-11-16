@@ -343,7 +343,37 @@
       Tell me what the manual part of your workflow is, and roughly what it costs you today. I’ll tell you
       what I’d build — or whether software is the wrong answer.
     </p>
-    <a class="contact-email" href="mailto:michael@guber.dev">michael@guber.dev</a>
+
+    <form class="contact-form" id="contactForm" action="https://formsubmit.co/michael@guber.dev" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry — guber.dev">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" value="https://guber.dev/?sent=1#contact">
+      <div class="cf-grid">
+        <p class="cf-field">
+          <label for="cf-name">Your name</label>
+          <input id="cf-name" name="name" type="text" required maxlength="100" autocomplete="name" placeholder="Jane Doe">
+        </p>
+        <p class="cf-field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required maxlength="200" autocomplete="email" placeholder="jane@company.com">
+        </p>
+      </div>
+      <p class="cf-field">
+        <label for="cf-message">What needs fixing?</label>
+        <textarea id="cf-message" name="message" rows="5" required maxlength="4000" placeholder="The workflow that hurts, who does it today, roughly what it costs you."></textarea>
+      </p>
+      <div class="cf-actions">
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <span class="cf-hint">Goes straight to my inbox — no autoresponder.</span>
+      </div>
+      <p class="cf-sent" id="cfSent" role="status" hidden>Thanks — your message is on its way. I’ll reply by email.</p>
+    </form>
+
+    <div class="contact-alt">
+      <span>Or reach me directly:</span>
+      <a class="contact-email" href="mailto:michael@guber.dev">michael@guber.dev</a>
+    </div>
     <div class="contact-channels">
       <a class="social-link" href="mailto:michael@guber.dev">✉ Email</a>
       <a class="social-link" href="https://t.me/guberm" target="_blank" rel="noopener">Telegram · @guberm</a>

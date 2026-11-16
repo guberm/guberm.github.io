@@ -13,3 +13,22 @@
     btn.textContent = next === 'dark' ? '\u2600 Light' : '\u263e Dark';
   });
 })();
+
+// Contact form: FormSubmit bounces the visitor back to /?sent=1#contact after a
+// successful send, so show the confirmation and drop the query param.
+(function () {
+  var banner = document.getElementById('cfSent');
+  if (banner && /[?&]sent=1(&|$)/.test(location.search)) {
+    banner.hidden = false;
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.hash);
+  }
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', function () {
+    var btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    // the button is not needed to serialise the form, so disabling it only stops double sends
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
+  });
+})();
