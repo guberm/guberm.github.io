@@ -491,7 +491,6 @@ header { gap: 1rem; }
 .work-card-cols { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; margin-top: 0.35rem; }
 .work-card-cols span { color: var(--text-muted); font-size: 0.8rem; }
 .work-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 0.55rem; }
-.app-icon-emoji { display: grid; place-items: center; font-size: 1.25rem; background: color-mix(in srgb, var(--accent) 13%, var(--surface2)); }
 .work-actions .app-cta { align-self: auto; }
 
 /* compact grid for apps published on the stores */
