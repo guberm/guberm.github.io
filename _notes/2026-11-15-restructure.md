@@ -76,3 +76,19 @@ compact grid, then a link to `/projects/`) → What I do → How I work → Stac
 - `releasebar.guber.dev` is down (502): fix and re-add, or leave it out.
 - No testimonials, logos or case studies on the page. One or two real client results
   would do more than any layout change.
+
+## Contact form contract (2026-11-16, shared by guber.dev + product landings)
+
+All public "contact us" forms — guber.dev, investigation.guber.dev, punchlist.guber.dev,
+sms.guber.dev — post the same way:
+
+- `POST https://form.guber.dev/contact`, plain form-urlencoded (works without JS).
+- Fields: `name` (1–100), `email` (valid address), `message` (1–4000), honeypot `_honey`
+  (must stay empty), plus the Turnstile widget sitekey `0x4AAAAAAGCxRu2ZW-EpjO3t`.
+- Processor (Hetzner VPS, Caddy → `form-processor` systemd unit, `/opt/form-processor/app.py`):
+  honeypot filled → fake 303; Turnstile token present but invalid → 403; no token → soft
+  delivery marked UNVERIFIED (`TURNSTILE_SOFT=1`); per-IP rate limits; delivery to Telegram
+  and SMTP (Reply-To = sender).
+- Success → `303` back to the caller's own origin (`Referer` allowlist) with `?sent=1#contact`;
+  each landing shows its thanks banner for `?sent=1` and cleans the URL.
+- Backend `ALLOWED_REDIRECT_HOSTS` (code default) lists the origins allowed to be bounced to.
