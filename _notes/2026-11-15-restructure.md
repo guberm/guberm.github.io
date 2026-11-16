@@ -89,6 +89,8 @@ sms.guber.dev — post the same way:
   honeypot filled → fake 303; Turnstile token present but invalid → 403; no token → soft
   delivery marked UNVERIFIED (`TURNSTILE_SOFT=1`); per-IP rate limits; delivery to Telegram
   and SMTP (Reply-To = sender).
+- Email subject (and Telegram header) names the source service, derived from the posting
+  origin: `New enquiry from <name> — <Service>` (e.g. `— Punchlist`, `— Investigation System`).
 - Success → `303` back to the caller's own origin (`Referer` allowlist) with `?sent=1#contact`;
   each landing shows its thanks banner for `?sent=1` and cleans the URL.
 - Backend `ALLOWED_REDIRECT_HOSTS` (code default) lists the origins allowed to be bounced to.
