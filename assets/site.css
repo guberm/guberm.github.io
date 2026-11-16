@@ -613,6 +613,16 @@ header { gap: 1rem; }
 .contact-form .btn { cursor: pointer; }
 .contact-form .btn[disabled] { opacity: 0.6; cursor: default; transform: none; }
 .cf-hint { color: var(--text-muted); font-size: 0.8rem; }
+.cf-captcha { margin-bottom: 1rem; }
+.cf-captcha .cf-turnstile { min-height: 65px; }
+.cf-robot {
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent3) 55%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent3) 12%, transparent);
+  font-size: 0.88rem;
+}
 .cf-sent {
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;

@@ -19,7 +19,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/site.css?v=20261116a">
+  <link rel="stylesheet" href="/assets/site.css?v=20261116b">
 </head>
 <body>
 
@@ -360,10 +360,14 @@
         <label for="cf-message">What needs fixing?</label>
         <textarea id="cf-message" name="message" rows="5" required maxlength="4000" placeholder="The workflow that hurts, who does it today, roughly what it costs you."></textarea>
       </p>
+      <div class="cf-captcha">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAGCxRu2ZW-EpjO3t" data-theme="auto"></div>
+      </div>
       <div class="cf-actions">
         <button class="btn btn-primary" type="submit">Send message</button>
         <span class="cf-hint">Goes straight to my inbox — no autoresponder.</span>
       </div>
+      <p class="cf-robot" id="cfRobot" role="status" hidden>Please confirm you’re not a robot and try again.</p>
       <p class="cf-sent" id="cfSent" role="status" hidden>Thanks — your message is on its way. I’ll reply by email.</p>
     </form>
 
@@ -391,6 +395,7 @@
   <p>© 2026 Michael Guber · Canada</p>
 </footer>
 
-<script src="/assets/site.js?v=20261116a"></script>
+<script src="/assets/site.js?v=20261116b"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

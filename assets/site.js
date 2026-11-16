@@ -24,7 +24,16 @@
   }
   var form = document.getElementById('contactForm');
   if (!form) return;
-  form.addEventListener('submit', function () {
+  form.addEventListener('submit', function (e) {
+    var token = form.querySelector('[name="cf-turnstile-response"]');
+    var robot = document.getElementById('cfRobot');
+    if (token && !token.value) {
+      // widget rendered but not solved: keep the visitor on the page instead of a bare 403
+      e.preventDefault();
+      if (robot) robot.hidden = false;
+      return;
+    }
+    if (robot) robot.hidden = true;
     var btn = form.querySelector('button[type="submit"]');
     if (!btn) return;
     // the button is not needed to serialise the form, so disabling it only stops double sends
