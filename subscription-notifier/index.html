@@ -67,5 +67,17 @@
 <footer>
   <p>© 2026 Michael Guber. Subscription Notifier is an independent private tool and is not affiliated with or endorsed by Google LLC.</p>
 </footer>
+<!-- self-hosted analytics beacon (guber.dev) -->
+<script>
+(function () {
+  var go = function () {
+    new Image().src = "https://form.guber.dev/hit?site=" + encodeURIComponent(location.hostname)
+      + "&path=" + encodeURIComponent(location.pathname + location.search)
+      + "&ref=" + encodeURIComponent(document.referrer || "") + "&r=" + Math.random();
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
+})();
+</script>
 </body>
 </html>

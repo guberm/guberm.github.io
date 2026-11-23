@@ -27,4 +27,16 @@
 <h2>Data deletion policy</h2><p>Because this is a private single-user tool, deletion is handled by the operator on request or when the tool is retired. Google user data can be deleted by removing the local SQLite database and OAuth credential store used by the application.</p><p>Contact <a href="mailto:michael@guber.dev">michael@guber.dev</a> to request deletion of stored data.</p>
 <h2>OAuth revocation and user control</h2><p>The authorized Google account can revoke access at any time from the Google Account permissions page:</p><p><a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">https://myaccount.google.com/permissions</a></p><p>After revocation, the application will no longer be able to access YouTube API data unless OAuth authorization is granted again.</p>
 <h2>Google Privacy Policy and API Services</h2><p>The application's use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements. Google's privacy policy is available here:</p><p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p><p>YouTube API Services terms are available here:</p><p><a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank" rel="noopener">https://developers.google.com/youtube/terms/api-services-terms-of-service</a></p>
-<h2>Security</h2><p>The application runs on private infrastructure controlled by Michael Guber. Access to the server, OAuth credentials, SQLite database, and email configuration is restricted to the operator.</p><h2>Contact</h2><p>Michael Guber<br><a href="mailto:michael@guber.dev">michael@guber.dev</a><br><a href="https://guber.dev">https://guber.dev</a></p></main><footer><p>Subscription Notifier is independent and is not affiliated with or endorsed by Google LLC.</p></footer></body></html>
+<h2>Security</h2><p>The application runs on private infrastructure controlled by Michael Guber. Access to the server, OAuth credentials, SQLite database, and email configuration is restricted to the operator.</p><h2>Contact</h2><p>Michael Guber<br><a href="mailto:michael@guber.dev">michael@guber.dev</a><br><a href="https://guber.dev">https://guber.dev</a></p></main><footer><p>Subscription Notifier is independent and is not affiliated with or endorsed by Google LLC.</p></footer><!-- self-hosted analytics beacon (guber.dev) -->
+<script>
+(function () {
+  var go = function () {
+    new Image().src = "https://form.guber.dev/hit?site=" + encodeURIComponent(location.hostname)
+      + "&path=" + encodeURIComponent(location.pathname + location.search)
+      + "&ref=" + encodeURIComponent(document.referrer || "") + "&r=" + Math.random();
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
+})();
+</script>
+</body></html>

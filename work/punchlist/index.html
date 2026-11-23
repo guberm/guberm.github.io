@@ -89,5 +89,17 @@
 </footer>
 
 <script src="/assets/site.js?v=20261116b"></script>
+<!-- self-hosted analytics beacon (guber.dev) -->
+<script>
+(function () {
+  var go = function () {
+    new Image().src = "https://form.guber.dev/hit?site=" + encodeURIComponent(location.hostname)
+      + "&path=" + encodeURIComponent(location.pathname + location.search)
+      + "&ref=" + encodeURIComponent(document.referrer || "") + "&r=" + Math.random();
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
+})();
+</script>
 </body>
 </html>
