@@ -24,9 +24,14 @@
 <script>
 (function () {
   var go = function () {
-    new Image().src = "https://form.guber.dev/hit?site=" + encodeURIComponent(location.hostname)
-      + "&path=" + encodeURIComponent(location.pathname + location.search)
-      + "&ref=" + encodeURIComponent(document.referrer || "") + "&r=" + Math.random();
+    var l = location, d = document, n = navigator, s = screen;
+    var dev = /Mobi|Android/i.test(n.userAgent) ? "mobile" : (Math.min(s.width, s.height) <= 500 ? "mobile" : (window.matchMedia && matchMedia("(pointer:coarse)").matches ? "tablet" : "desktop"));
+    var seen = 0; try { seen = localStorage.getItem("ga_seen") ? "1" : "0"; localStorage.setItem("ga_seen", "1"); } catch (e) {}
+    var p = new URLSearchParams({ site: l.hostname, path: l.pathname + l.search, ref: d.referrer || "",
+      lang: n.language || "", tz: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+      sw: s.width + "x" + s.height, dev: dev, ret: seen, hr: String(new Date().getHours()) });
+    p.set("r", Math.random());
+    new Image().src = "https://form.guber.dev/hit?" + p.toString();
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
   else go();
